@@ -11,7 +11,8 @@ export default function Hero() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-background/90 via-background/70 to-background/90" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background/95 via-background/85 to-background/95" />
+        <div className="absolute inset-0 bg-background/40" />
       </div>
       
       {/* Floating 3D Elements */}
@@ -28,36 +29,38 @@ export default function Hero() {
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto space-y-8">
           {/* Event Badge */}
-          <Badge variant="outline" className="mx-auto px-4 py-2 text-sm font-medium bg-background/20 backdrop-blur-sm border-primary/20">
+          <Badge variant="outline" className="mx-auto px-4 py-2 text-sm font-medium bg-background/80 backdrop-blur-sm border-primary/30 text-foreground">
             <Calendar className="w-4 h-4 mr-2" />
             March 15, 2025 • 2:00 PM EST
           </Badge>
 
           {/* Main Headline */}
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-primary via-accent to-chart-2 bg-clip-text text-transparent leading-tight" 
+            <h1 className="text-5xl md:text-7xl font-bold text-foreground leading-tight drop-shadow-lg" 
                 style={{ fontFamily: "Space Grotesk, sans-serif" }}>
               Future of Digital
               <br />
-              Collaboration
+              <span className="bg-gradient-to-r from-primary via-accent to-chart-2 bg-clip-text text-transparent">
+                Collaboration
+              </span>
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-foreground max-w-2xl mx-auto leading-relaxed drop-shadow-md">
               Experience the next generation of webinars with interactive 3D environments, 
               real-time collaboration, and cutting-edge technology.
             </p>
           </div>
 
           {/* Event Stats */}
-          <div className="flex flex-wrap justify-center gap-8 text-sm text-muted-foreground">
-            <div className="flex items-center gap-2 bg-background/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-border/20">
+          <div className="flex flex-wrap justify-center gap-8 text-sm">
+            <div className="flex items-center gap-2 bg-background/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-border/30 text-foreground">
               <Users className="w-4 h-4 text-primary" />
               <span>500+ Attendees</span>
             </div>
-            <div className="flex items-center gap-2 bg-background/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-border/20">
+            <div className="flex items-center gap-2 bg-background/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-border/30 text-foreground">
               <Clock className="w-4 h-4 text-accent" />
               <span>90 Minutes</span>
             </div>
-            <div className="flex items-center gap-2 bg-background/10 backdrop-blur-sm px-4 py-2 rounded-lg border border-border/20">
+            <div className="flex items-center gap-2 bg-background/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-border/30 text-foreground">
               <Calendar className="w-4 h-4 text-chart-2" />
               <span>Interactive Sessions</span>
             </div>
