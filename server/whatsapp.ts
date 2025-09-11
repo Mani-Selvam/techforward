@@ -1,4 +1,5 @@
 import { WebinarRegistration } from '@shared/schema';
+import twilio from 'twilio';
 
 export interface WhatsAppMessage {
   phoneNumber: string;
@@ -64,23 +65,45 @@ export function createRegistrationWhatsAppMessage(registration: WebinarRegistrat
 }
 
 /**
- * Logs WhatsApp message details (in production, this could send via WhatsApp Business API)
+ * Sends WhatsApp message via Twilio API or logs for development
  */
-export function sendWhatsAppMessage(whatsappMessage: WhatsAppMessage): void {
-  // Only log detailed information in development to protect PII
-  if (process.env.NODE_ENV !== 'production') {
-    console.log('📱 WhatsApp Message Prepared:');
+export async function sendWhatsAppMessage(whatsappMessage: WhatsAppMessage): Promise<void> {
+  // Check if Twilio credentials are available
+  const accountSid = process.env.TWILIO_ACCOUNT_SID;
+  const authToken = process.env.TWILIO_AUTH_TOKEN;
+  const fromNumber = process.env.TWILIO_WHATSAPP_FROM; // e.g., 'whatsapp:+14155238886'
+  
+  if (accountSid && authToken && fromNumber) {
+    try {
+      const client = twilio(accountSid, authToken);
+      
+      // Format the admin number for Twilio (need whatsapp: prefix)
+      const adminPhoneNumber = "8825620014";
+      const toNumber = `whatsapp:+91${adminPhoneNumber}`;
+      
+      const message = await client.messages.create({
+        body: whatsappMessage.message,
+        from: fromNumber,
+        to: toNumber
+      });
+      
+      console.log('✅ WhatsApp message sent successfully!');
+      console.log(`📞 Message SID: ${message.sid}`);
+      console.log(`📱 Sent to: ${toNumber}`);
+    } catch (error: any) {
+      console.error('❌ Failed to send WhatsApp message:', error.message);
+      
+      // Fall back to logging the URL for manual sending
+      console.log('💡 Fallback - Open this URL to send manually:');
+      console.log(whatsappMessage.whatsappUrl);
+    }
+  } else {
+    // Development mode - log message details for testing
+    console.log('📱 WhatsApp Message Prepared (Twilio not configured):');
     console.log(`📞 Phone: ${whatsappMessage.phoneNumber}`);
     console.log(`🔗 WhatsApp URL: ${whatsappMessage.whatsappUrl}`);
     console.log('📝 Message:', whatsappMessage.message);
     console.log('💡 To send manually: Open the WhatsApp URL above in a browser');
-  } else {
-    // In production, only log that a message was prepared without PII
-    console.log('📱 WhatsApp message prepared for registration');
+    console.log('🔧 To enable auto-sending, configure TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, and TWILIO_WHATSAPP_FROM');
   }
-  
-  // In production with WhatsApp Business API, you would:
-  // 1. Use Twilio WhatsApp API
-  // 2. Use WhatsApp Business API directly
-  // 3. Use other WhatsApp providers
 }

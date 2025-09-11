@@ -28,9 +28,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
           .catch(error => console.error('Failed to send confirmation email:', error));
       }
 
-      // Prepare WhatsApp message with registration details
+      // Prepare and send WhatsApp message with registration details
       const whatsappMessage = createRegistrationWhatsAppMessage(registration);
-      sendWhatsAppMessage(whatsappMessage);
+      await sendWhatsAppMessage(whatsappMessage);
 
       res.status(201).json({ 
         success: true, 
