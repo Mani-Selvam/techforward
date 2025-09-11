@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertWebinarRegistrationSchema } from "@shared/schema";
 import { sendRegistrationConfirmation } from "./sendgrid";
+import { createRegistrationWhatsAppMessage, sendWhatsAppMessage } from "./whatsapp";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Webinar registration endpoint
@@ -26,6 +27,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
         sendRegistrationConfirmation(registration.email, registration.name)
           .catch(error => console.error('Failed to send confirmation email:', error));
       }
+
+      // Prepare WhatsApp message with registration details
+      const whatsappMessage = createRegistrationWhatsAppMessage(registration);
+      sendWhatsAppMessage(whatsappMessage);
 
       res.status(201).json({ 
         success: true, 

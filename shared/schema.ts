@@ -14,6 +14,7 @@ export const webinarRegistrations = pgTable("webinar_registrations", {
   name: text("name").notNull(),
   email: text("email").notNull(),
   company: text("company"),
+  mobile: text("mobile").notNull(),
   registeredAt: timestamp("registered_at").defaultNow().notNull(),
   confirmed: boolean("confirmed").default(false).notNull(),
 });
@@ -27,9 +28,17 @@ export const insertWebinarRegistrationSchema = createInsertSchema(webinarRegistr
   name: true,
   email: true,
   company: true,
+  mobile: true,
 }).extend({
   email: z.string().email("Please enter a valid email address"),
   name: z.string().min(2, "Name must be at least 2 characters").max(100, "Name must be less than 100 characters"),
+  mobile: z.preprocess(
+    (val) => String(val).replace(/\D/g, ""), // Strip all non-digits
+    z.string()
+      .min(10, "Mobile number must have at least 10 digits")
+      .max(15, "Mobile number cannot exceed 15 digits")
+      .regex(/^\d{10,15}$/, "Please enter a valid mobile number")
+  ),
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;

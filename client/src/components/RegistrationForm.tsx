@@ -4,10 +4,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Mail, User, Building, Gift, CheckCircle } from "lucide-react";
+import { Mail, User, Building, Gift, CheckCircle, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
+import { insertWebinarRegistrationSchema } from "@shared/schema";
 
 interface RegistrationFormProps {
   onSubmit?: (data: any) => void;
@@ -17,13 +18,15 @@ interface RegistrationData {
   name: string;
   email: string;
   company?: string;
+  mobile: string;
 }
 
 export default function RegistrationForm({ onSubmit }: RegistrationFormProps) {
   const [formData, setFormData] = useState<RegistrationData>({
     name: '',
     email: '',
-    company: ''
+    company: '',
+    mobile: ''
   });
   const [isRegistered, setIsRegistered] = useState(false);
   const { toast } = useToast();
@@ -40,7 +43,7 @@ export default function RegistrationForm({ onSubmit }: RegistrationFormProps) {
       });
       setIsRegistered(true);
       onSubmit?.(formData);
-      setFormData({ name: '', email: '', company: '' });
+      setFormData({ name: '', email: '', company: '', mobile: '' });
     },
     onError: (error: any) => {
       toast({
@@ -53,14 +56,27 @@ export default function RegistrationForm({ onSubmit }: RegistrationFormProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email) {
+    
+    // Debug logging
+    console.log('Form data before validation:', formData);
+    
+    // Validate using zod schema
+    const validationResult = insertWebinarRegistrationSchema.safeParse(formData);
+    
+    console.log('Validation result:', validationResult);
+    
+    if (!validationResult.success) {
+      const firstError = validationResult.error.errors[0];
+      console.log('Validation errors:', validationResult.error.errors);
       toast({
-        title: "Missing Information",
-        description: "Please fill in all required fields.",
+        title: "Invalid Information",
+        description: firstError.message,
         variant: "destructive",
       });
       return;
     }
+    
+    console.log('Validation passed, submitting:', validationResult.data);
     registrationMutation.mutate(formData);
   };
 
@@ -148,6 +164,23 @@ export default function RegistrationForm({ onSubmit }: RegistrationFormProps) {
                     required
                     className="bg-background/50"
                     data-testid="input-email"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="mobile" className="flex items-center gap-2">
+                    <Phone className="w-4 h-4" />
+                    Mobile Number
+                  </Label>
+                  <Input 
+                    id="mobile"
+                    type="tel"
+                    placeholder="Enter your mobile number (+1234567890)"
+                    value={formData.mobile}
+                    onChange={(e) => handleInputChange('mobile', e.target.value)}
+                    required
+                    className="bg-background/50"
+                    data-testid="input-mobile"
                   />
                 </div>
 
