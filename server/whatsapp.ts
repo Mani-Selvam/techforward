@@ -30,29 +30,30 @@ export function createRegistrationWhatsAppMessage(registration: WebinarRegistrat
   const webinarTime = "2:00 PM EST";
   const webinarLink = "https://your-webinar-platform.com/join";
   
-  const message = `🎉 Welcome to the Cutting-Edge Webinar!
+  const message = `🎉 Thanks for Applying!
 
 Hi ${registration.name}!
 
-Thank you for registering for our exclusive webinar. Here are your details:
+Thank you for your registration to our cutting-edge webinar! We're excited to have you join us.
 
+✅ Your Registration Details:
 📅 Date: ${webinarDate}
 ⏰ Time: ${webinarTime}
-💼 Company: ${registration.company || 'Not specified'}
+💼 Company: ${registration.company || 'Individual'}
 📧 Email: ${registration.email}
 
-📋 What to expect:
-• Industry-leading insights
-• Interactive Q&A sessions
-• Networking opportunities
-• Exclusive resources
+🚀 What's Next:
+• Confirmation email sent to your inbox
+• Calendar invite will follow shortly
+• Join link will be provided 1 hour before event
+• Exclusive resources shared after webinar
 
-🔗 Join Link: ${webinarLink}
+📱 Keep this message - you'll receive important updates about the event here.
 
-We'll send you a reminder 24 hours before the event. See you there!
+Looking forward to seeing you at the webinar!
 
 Best regards,
-The Webinar Team`;
+TechForward Team`;
 
   try {
     const phoneNumber = formatPhoneNumber(registration.mobile);
