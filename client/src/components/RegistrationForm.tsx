@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Mail, User, Building, Gift, CheckCircle, Phone, MessageCircle } from "lucide-react";
+import { Mail, User, Building, Gift, CheckCircle, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useMutation } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
@@ -29,7 +29,6 @@ export default function RegistrationForm({ onSubmit }: RegistrationFormProps) {
     mobile: ''
   });
   const [isRegistered, setIsRegistered] = useState(false);
-  const [whatsappUrl, setWhatsappUrl] = useState<string | null>(null);
   const { toast } = useToast();
 
   const registrationMutation = useMutation({
@@ -43,7 +42,6 @@ export default function RegistrationForm({ onSubmit }: RegistrationFormProps) {
         description: response.message || "You'll receive a confirmation email shortly.",
       });
       setIsRegistered(true);
-      setWhatsappUrl(response.whatsappUrl);
       onSubmit?.(formData);
       setFormData({ name: '', email: '', company: '', mobile: '' });
     },
@@ -93,23 +91,10 @@ export default function RegistrationForm({ onSubmit }: RegistrationFormProps) {
                 <p className="text-muted-foreground text-lg mb-6">
                   Thank you for joining us. Check your email for confirmation details and calendar invite.
                 </p>
-                <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-                  <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
-                    <Gift className="w-4 h-4 mr-2" />
-                    Registration Confirmed
-                  </Badge>
-                  
-                  {whatsappUrl && (
-                    <Button 
-                      onClick={() => window.open(whatsappUrl, '_blank', 'noopener,noreferrer')}
-                      className="bg-green-600 hover:bg-green-700 text-white"
-                      data-testid="button-whatsapp"
-                    >
-                      <MessageCircle className="w-4 h-4 mr-2" />
-                      Send via WhatsApp
-                    </Button>
-                  )}
-                </div>
+                <Badge variant="outline" className="bg-primary/10 text-primary border-primary/20">
+                  <Gift className="w-4 h-4 mr-2" />
+                  Registration Confirmed
+                </Badge>
               </CardContent>
             </Card>
           </div>

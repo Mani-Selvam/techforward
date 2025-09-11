@@ -26,42 +26,35 @@ export function formatPhoneNumber(phoneNumber: string): string {
  * Creates a WhatsApp message with registration details
  */
 export function createRegistrationWhatsAppMessage(registration: WebinarRegistration): WhatsAppMessage {
+  // Admin WhatsApp number for receiving registrant notifications
+  const adminPhoneNumber = "8825620014";
+  
+  // Example webinar details
   const webinarDate = "December 15, 2024";
   const webinarTime = "2:00 PM EST";
-  const webinarLink = "https://your-webinar-platform.com/join";
   
-  const message = `🎉 Thanks for Applying!
+  const message = `🎯 New Webinar Registration!
 
-Hi ${registration.name}!
+📝 Registration Details:
+👤 Name: ${registration.name}
+📧 Email: ${registration.email}
+📱 Mobile: ${registration.mobile}
+🏢 Company: ${registration.company || 'Individual'}
 
-Thank you for your registration to our cutting-edge webinar! We're excited to have you join us.
-
-✅ Your Registration Details:
+📅 Event: Cutting-Edge Webinar
 📅 Date: ${webinarDate}
 ⏰ Time: ${webinarTime}
-💼 Company: ${registration.company || 'Individual'}
-📧 Email: ${registration.email}
 
-🚀 What's Next:
-• Confirmation email sent to your inbox
-• Calendar invite will follow shortly
-• Join link will be provided 1 hour before event
-• Exclusive resources shared after webinar
+✅ Registration ID: ${registration.id}
 
-📱 Keep this message - you'll receive important updates about the event here.
-
-Looking forward to seeing you at the webinar!
-
-Best regards,
-TechForward Team`;
+💬 You can now contact this registrant directly for any updates or questions about the webinar.`;
 
   try {
-    const phoneNumber = formatPhoneNumber(registration.mobile);
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/${phoneNumber.replace('+', '')}?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/${adminPhoneNumber}?text=${encodedMessage}`;
 
     return {
-      phoneNumber,
+      phoneNumber: `+${adminPhoneNumber}`,
       message,
       whatsappUrl
     };
