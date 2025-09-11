@@ -12,10 +12,18 @@ export default function Home() {
       <Navigation />
       <main className="pt-16">
         <Hero />
-        <CountdownTimer />
-        <SpeakerCards />
-        <VideoPreview />
-        <SocialProof />
+        <section id="about">
+          <CountdownTimer />
+        </section>
+        <section id="speakers">
+          <SpeakerCards />
+        </section>
+        <section id="preview">
+          <VideoPreview />
+        </section>
+        <section id="schedule">
+          <SocialProof />
+        </section>
         <RegistrationForm />
       </main>
       

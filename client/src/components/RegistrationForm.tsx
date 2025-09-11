@@ -30,15 +30,10 @@ export default function RegistrationForm({ onSubmit }: RegistrationFormProps) {
 
   const registrationMutation = useMutation({
     mutationFn: async (data: RegistrationData) => {
-      return await apiRequest('/api/register', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
+      const response = await apiRequest('POST', '/api/register', data);
+      return await response.json();
     },
-    onSuccess: (response) => {
+    onSuccess: (response: any) => {
       toast({
         title: "Registration Successful!",
         description: response.message || "You'll receive a confirmation email shortly.",

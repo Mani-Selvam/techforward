@@ -46,7 +46,7 @@ export class MemStorage implements IStorage {
       company: insertRegistration.company || null,
       id,
       registeredAt: new Date(),
-      confirmed: false,
+      confirmed: true, // Set to true since registration is successful
     };
     this.webinarRegistrations.set(id, registration);
     return registration;

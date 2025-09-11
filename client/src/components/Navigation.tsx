@@ -12,9 +12,34 @@ export default function Navigation() {
   };
 
   const scrollToSection = (sectionId: string) => {
-    // todo: remove mock functionality
     console.log(`Scrolling to ${sectionId}`);
     setIsMenuOpen(false);
+    
+    // Get the target element
+    const targetElement = document.querySelector(sectionId);
+    if (targetElement) {
+      // Scroll to the element with smooth behavior
+      targetElement.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    } else {
+      // If no specific element, scroll to approximate positions
+      const scrollPositions: { [key: string]: number } = {
+        '#about': window.innerHeight, // After hero
+        '#speakers': window.innerHeight * 2.5, // After countdown
+        '#schedule': window.innerHeight * 4, // After speakers  
+        '#preview': window.innerHeight * 5.5, // Video section
+      };
+      
+      const position = scrollPositions[sectionId];
+      if (position) {
+        window.scrollTo({
+          top: position,
+          behavior: 'smooth'
+        });
+      }
+    }
   };
 
   const navItems = [

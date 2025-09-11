@@ -10,11 +10,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       const validatedData = insertWebinarRegistrationSchema.parse(req.body);
       
-      // Check if email already registered
+      // Check if email already registered (using simple duplicate prevention)
       const existingRegistration = await storage.getWebinarRegistrationByEmail(validatedData.email);
       if (existingRegistration) {
         return res.status(400).json({ 
-          error: "Email already registered for this webinar" 
+          error: "This email is already registered for the webinar" 
         });
       }
 
@@ -32,39 +32,20 @@ export async function registerRoutes(app: Express): Promise<Server> {
         message: "Registration successful! Check your email for confirmation.",
         registrationId: registration.id 
       });
-    } catch (error) {
+    } catch (error: any) {
       console.error("Registration error:", error);
-      res.status(400).json({ error: "Invalid registration data" });
-    }
-  });
-
-  // Get all registrations (admin endpoint)
-  app.get("/api/registrations", async (req, res) => {
-    try {
-      const registrations = await storage.getAllWebinarRegistrations();
-      res.json(registrations);
-    } catch (error) {
-      console.error("Failed to fetch registrations:", error);
-      res.status(500).json({ error: "Failed to fetch registrations" });
-    }
-  });
-
-  // Check registration status
-  app.get("/api/register/check/:email", async (req, res) => {
-    try {
-      const { email } = req.params;
-      const registration = await storage.getWebinarRegistrationByEmail(email);
       
-      if (registration) {
-        res.json({ registered: true, registration });
-      } else {
-        res.json({ registered: false });
+      // Return user-friendly validation errors
+      if (error.name === 'ZodError') {
+        const firstError = error.errors[0];
+        return res.status(400).json({ error: firstError.message });
       }
-    } catch (error) {
-      console.error("Failed to check registration:", error);
-      res.status(500).json({ error: "Failed to check registration" });
+      
+      res.status(400).json({ error: "Registration failed. Please check your information and try again." });
     }
   });
+
+  // Note: Admin endpoints removed for security - no authentication system in place
 
   const httpServer = createServer(app);
 
