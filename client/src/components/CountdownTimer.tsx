@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface TimeLeft {
   days: number;
@@ -11,8 +12,8 @@ interface TimeLeft {
 }
 
 export default function CountdownTimer() {
-  // todo: remove mock functionality - set target date to March 15, 2025
-  const targetDate = new Date('2025-03-15T14:00:00').getTime();
+  // Event date: September 15, 2025
+  const targetDate = new Date('2025-09-15T14:00:00').getTime();
   
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 0,
@@ -66,35 +67,93 @@ export default function CountdownTimer() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8">
             {timeUnits.map((unit, index) => (
-              <Card 
+              <motion.div
                 key={unit.label}
-                className="hover-elevate border-border/50 bg-card/50 backdrop-blur-sm transform hover:scale-105 transition-all duration-300"
-                data-testid={`countdown-${unit.label.toLowerCase()}`}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                whileHover={{ 
+                  scale: 1.05,
+                  rotateY: 5,
+                  transition: { duration: 0.3 }
+                }}
+                className="group"
               >
+                <Card 
+                  className="hover-elevate border-border/50 bg-card/50 backdrop-blur-sm transition-all duration-300"
+                  data-testid={`countdown-${unit.label.toLowerCase()}`}
+                >
                 <CardContent className="p-6 text-center">
                   <div className="relative">
-                    {/* 3D Effect Background */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg transform rotate-1" />
-                    <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-chart-2/10 rounded-lg transform -rotate-1" />
+                    {/* 3D Effect Background with Animation */}
+                    <motion.div 
+                      className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg"
+                      animate={{ 
+                        rotate: [1, 2, 1],
+                        scale: [1, 1.02, 1]
+                      }}
+                      transition={{ 
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }}
+                    />
+                    <motion.div 
+                      className="absolute inset-0 bg-gradient-to-br from-accent/10 to-chart-2/10 rounded-lg"
+                      animate={{ 
+                        rotate: [-1, -2, -1],
+                        scale: [1, 0.98, 1]
+                      }}
+                      transition={{ 
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 0.5
+                      }}
+                    />
                     
                     {/* Content */}
                     <div className="relative z-10">
-                      <div className="text-4xl md:text-5xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent mb-2">
-                        {unit.value.toString().padStart(2, '0')}
-                      </div>
-                      <div className="text-muted-foreground font-medium text-sm md:text-base">
+                      <AnimatePresence mode="wait">
+                        <motion.div 
+                          key={unit.value}
+                          initial={{ y: -20, opacity: 0, scale: 0.8 }}
+                          animate={{ y: 0, opacity: 1, scale: 1 }}
+                          exit={{ y: 20, opacity: 0, scale: 0.8 }}
+                          transition={{ 
+                            duration: 0.5,
+                            ease: "easeInOut",
+                            scale: { type: "spring", stiffness: 300, damping: 20 }
+                          }}
+                          className="text-4xl md:text-5xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent mb-2"
+                        >
+                          {unit.value.toString().padStart(2, '0')}
+                        </motion.div>
+                      </AnimatePresence>
+                      <motion.div 
+                        className="text-muted-foreground font-medium text-sm md:text-base"
+                        animate={{ 
+                          scale: unit.label === 'Seconds' ? [1, 1.1, 1] : 1,
+                        }}
+                        transition={{ 
+                          duration: 1,
+                          repeat: unit.label === 'Seconds' ? Infinity : 0,
+                          ease: "easeInOut"
+                        }}
+                      >
                         {unit.label}
-                      </div>
+                      </motion.div>
                     </div>
                   </div>
                 </CardContent>
               </Card>
+              </motion.div>
             ))}
           </div>
 
           <div className="mt-12 p-6 bg-gradient-to-r from-primary/5 via-accent/5 to-chart-2/5 rounded-lg border border-border/20">
             <p className="text-muted-foreground">
-              <strong className="text-foreground">March 15, 2025 • 2:00 PM EST</strong>
+              <strong className="text-foreground">September 15, 2025 • 2:00 PM EST</strong>
               <br />
               Get ready for an unforgettable immersive experience
             </p>
