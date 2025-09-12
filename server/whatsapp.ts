@@ -26,7 +26,7 @@ export function formatPhoneNumber(phoneNumber: string): string {
 }
 
 /**
- * Creates a WhatsApp message with registration details
+ * Creates a WhatsApp message with registration details for ADMIN
  */
 export function createRegistrationWhatsAppMessage(
   registration: WebinarRegistration,
@@ -69,10 +69,56 @@ export function createRegistrationWhatsAppMessage(
 }
 
 /**
+ * Creates a WhatsApp confirmation message for CLIENT
+ */
+export function createClientConfirmationMessage(
+  registration: WebinarRegistration,
+): WhatsAppMessage {
+  // Format client's phone number
+  const clientPhoneNumber = formatPhoneNumber(registration.mobile);
+  
+  const webinarDate = "December 15, 2024";
+  const webinarTime = "2:00 PM EST";
+  
+  const message = `✅ Registration Confirmed!
+
+Hi ${registration.name}! 👋
+
+🎯 You're successfully registered for:
+📅 Event: Cutting-Edge Webinar
+📅 Date: ${webinarDate}
+⏰ Time: ${webinarTime}
+
+📧 Confirmation sent to: ${registration.email}
+✅ Registration ID: ${registration.id}
+
+🚀 Get ready for an amazing experience with interactive 3D environments and cutting-edge technology!
+
+📞 Questions? Contact us anytime.
+See you at the webinar! 🎉`;
+
+  try {
+    const encodedMessage = encodeURIComponent(message);
+    // Remove the + from phone number for WhatsApp URL
+    const phoneForUrl = clientPhoneNumber.replace('+', '');
+    const whatsappUrl = `https://wa.me/${phoneForUrl}?text=${encodedMessage}`;
+
+    return {
+      phoneNumber: clientPhoneNumber,
+      message,
+      whatsappUrl,
+    };
+  } catch (error: any) {
+    throw new Error(`Failed to create client confirmation message: ${error.message}`);
+  }
+}
+
+/**
  * Sends WhatsApp message via Twilio API or logs for development
  */
 export async function sendWhatsAppMessage(
   whatsappMessage: WhatsAppMessage,
+  isClientMessage: boolean = false,
 ): Promise<void> {
   // Check if Twilio credentials are available
   const accountSid = process.env.TWILIO_ACCOUNT_SID;
@@ -83,9 +129,16 @@ export async function sendWhatsAppMessage(
     try {
       const client = twilio(accountSid, authToken);
 
-      // Format the admin number for Twilio (need whatsapp: prefix)
-      const adminPhoneNumber = "8825620014";
-      const toNumber = `whatsapp:+91${adminPhoneNumber}`;
+      // Format the target number for Twilio (need whatsapp: prefix)
+      let toNumber: string;
+      if (isClientMessage) {
+        // For client messages, use the client's number from the message
+        toNumber = `whatsapp:${whatsappMessage.phoneNumber}`;
+      } else {
+        // For admin messages, use the admin number
+        const adminPhoneNumber = "8825620014";
+        toNumber = `whatsapp:+91${adminPhoneNumber}`;
+      }
 
       const message = await client.messages.create({
         body: whatsappMessage.message,
@@ -105,15 +158,18 @@ export async function sendWhatsAppMessage(
     }
   } else {
     // Development mode - log message details for testing
-    console.log("📱 WhatsApp Message Prepared (Twilio not configured):");
+    const messageType = isClientMessage ? "CLIENT CONFIRMATION" : "ADMIN NOTIFICATION";
+    console.log(`📱 ${messageType} WhatsApp Message Prepared (Twilio not configured):`);
     console.log(`📞 Phone: ${whatsappMessage.phoneNumber}`);
     console.log(`🔗 WhatsApp URL: ${whatsappMessage.whatsappUrl}`);
     console.log("📝 Message:", whatsappMessage.message);
     console.log(
       "💡 To send manually: Open the WhatsApp URL above in a browser",
     );
-    console.log(
-      "🔧 To enable auto-sending, configure TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, and TWILIO_WHATSAPP_FROM",
-    );
+    if (!isClientMessage) {
+      console.log(
+        "🔧 To enable auto-sending, configure TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, and TWILIO_WHATSAPP_FROM",
+      );
+    }
   }
 }
