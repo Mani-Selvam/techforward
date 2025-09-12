@@ -19,19 +19,6 @@ const speakers = [
     },
     topics: ["AI Integration", "Future Tech"]
   },
-  {
-    id: 2,
-    name: "Marcus Rodriguez",
-    title: "Creative Technology Lead",
-    company: "Innovation Studios",
-    bio: "Pioneer in 3D web experiences and interactive digital environments.",
-    avatar: "",
-    social: {
-      linkedin: "#",
-      twitter: "#"
-    },
-    topics: ["3D Design", "Web Innovation"]
-  },
 ];
 
 export default function SpeakerCards() {
@@ -50,7 +37,7 @@ export default function SpeakerCards() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 gap-8 max-w-md mx-auto">
           {speakers.map((speaker) => (
             <Card 
               key={speaker.id} 
