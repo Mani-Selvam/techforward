@@ -1,96 +1,220 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, Users } from "lucide-react";
-import heroImage from "@assets/generated_images/3D_webinar_hero_background_699f4171.png";
+import { motion } from "framer-motion";
 
 export default function Hero() {
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-white via-gray-50 to-gray-100 dark:from-gray-950 dark:via-gray-900 dark:to-gray-950">
-            {/* Hero Background */}
-            <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                style={{ backgroundImage: `url(${heroImage})` }}>
-                <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-gray-100/80 to-white/90 dark:from-gray-950/90 dark:via-gray-900/80 dark:to-gray-950/90" />
-                <div className="absolute inset-0 bg-white/40 dark:bg-gray-950/40" />
+        <motion.section 
+            className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-card to-background"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+        >
+            {/* Animated Background */}
+            <div className="absolute inset-0">
+                {/* Gradient blobs */}
+                <motion.div
+                    className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-3xl"
+                    animate={{
+                        x: [0, 100, 0],
+                        y: [0, -50, 0],
+                        scale: [1, 1.2, 1],
+                    }}
+                    transition={{
+                        duration: 20,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                    }}
+                />
+                <motion.div
+                    className="absolute top-1/2 right-20 w-96 h-96 bg-gradient-to-r from-accent/15 to-chart-2/15 rounded-full blur-3xl"
+                    animate={{
+                        x: [0, -80, 0],
+                        y: [0, 100, 0],
+                        scale: [1, 0.8, 1],
+                    }}
+                    transition={{
+                        duration: 25,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 2
+                    }}
+                />
+                <motion.div
+                    className="absolute bottom-20 left-1/3 w-64 h-64 bg-gradient-to-r from-chart-2/20 to-primary/20 rounded-full blur-3xl"
+                    animate={{
+                        x: [0, 60, 0],
+                        y: [0, -80, 0],
+                        scale: [1, 1.3, 1],
+                    }}
+                    transition={{
+                        duration: 18,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                        delay: 4
+                    }}
+                />
             </div>
 
-            {/* Floating 3D Elements */}
+            {/* Floating Particles */}
             <div className="absolute inset-0 pointer-events-none">
-                <div
-                    className="animate-pulse absolute top-20 left-20 w-4 h-4 bg-primary/30 dark:bg-primary/40 rounded-full blur-md"
-                    style={{ animation: "float 6s ease-in-out infinite" }}
-                />
-                <div
-                    className="animate-pulse absolute top-40 right-32 w-6 h-6 bg-accent/40 dark:bg-accent/60 rounded-full blur-md"
-                    style={{ animation: "float 8s ease-in-out infinite 2s" }}
-                />
-                <div
-                    className="animate-pulse absolute bottom-40 left-40 w-3 h-3 bg-chart-2/30 dark:bg-chart-2/50 rounded-full blur-md"
-                    style={{ animation: "float 7s ease-in-out infinite 1s" }}
-                />
+                {[...Array(12)].map((_, i) => (
+                    <motion.div
+                        key={i}
+                        className={`absolute w-2 h-2 bg-gradient-to-r from-primary/40 to-accent/40 rounded-full`}
+                        style={{
+                            left: `${10 + (i * 8)}%`,
+                            top: `${20 + (i * 5)}%`,
+                        }}
+                        animate={{
+                            y: [0, -30, 0],
+                            opacity: [0.3, 1, 0.3],
+                            scale: [0.5, 1, 0.5],
+                        }}
+                        transition={{
+                            duration: 4 + (i * 0.5),
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: i * 0.2
+                        }}
+                    />
+                ))}
             </div>
 
             {/* Main Content */}
             <div className="relative z-10 container mx-auto px-4 text-center">
                 <div className="max-w-4xl mx-auto space-y-8">
                     {/* Event Badge */}
-                    <Badge
-                        variant="outline"
-                        className="mx-auto px-4 py-2 text-sm font-medium bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-primary/30 text-gray-900 dark:text-gray-100">
-                        <Calendar className="w-4 h-4 mr-2 text-primary dark:text-accent" />
-                        March 15, 2025 • 2:00 PM EST
-                    </Badge>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                    >
+                        <Badge
+                            variant="outline"
+                            className="mx-auto px-4 py-2 text-sm font-medium bg-card/80 backdrop-blur-sm border-primary/30">
+                            <Calendar className="w-4 h-4 mr-2 text-primary" />
+                            March 15, 2025 • 2:00 PM EST
+                        </Badge>
+                    </motion.div>
 
                     {/* Main Headline */}
-                    <div className="space-y-4">
+                    <motion.div 
+                        className="space-y-4"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
+                    >
                         <h1
-                            className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-gray-100 leading-tight drop-shadow-lg"
+                            className="text-5xl md:text-7xl font-bold text-foreground leading-tight"
                             style={{ fontFamily: "Space Grotesk, sans-serif" }}>
                             Future of Digital
                             <br />
-                            <span className="bg-gradient-to-r from-primary via-accent to-chart-2 bg-clip-text text-transparent dark:from-accent dark:via-primary dark:to-chart-2">
+                            <motion.span 
+                                className="bg-gradient-to-r from-primary via-accent to-chart-2 bg-clip-text text-transparent"
+                                animate={{
+                                    backgroundPosition: ["0%", "100%", "0%"]
+                                }}
+                                transition={{
+                                    duration: 5,
+                                    repeat: Infinity,
+                                    ease: "easeInOut"
+                                }}
+                            >
                                 Collaboration
-                            </span>
+                            </motion.span>
                         </h1>
-                        <p className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed drop-shadow-md">
+                        <motion.p 
+                            className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.8, delay: 0.8 }}
+                        >
                             Experience the next generation of webinars with
                             interactive 3D environments, real-time
                             collaboration, and cutting-edge technology.
-                        </p>
-                    </div>
+                        </motion.p>
+                    </motion.div>
 
                     {/* Event Stats */}
-                    <div className="flex flex-wrap justify-center gap-8 text-sm">
-                        <div className="flex items-center gap-2 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-border/30 text-gray-900 dark:text-gray-100">
-                            <Users className="w-4 h-4 text-primary dark:text-accent" />
+                    <motion.div 
+                        className="flex flex-wrap justify-center gap-8 text-sm"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 1.0 }}
+                    >
+                        <motion.div 
+                            className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-border/30"
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <Users className="w-4 h-4 text-primary" />
                             <span>500+ Attendees</span>
-                        </div>
-                        <div className="flex items-center gap-2 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-border/30 text-gray-900 dark:text-gray-100">
-                            <Clock className="w-4 h-4 text-accent dark:text-primary" />
+                        </motion.div>
+                        <motion.div 
+                            className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-border/30"
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <Clock className="w-4 h-4 text-accent" />
                             <span>90 Minutes</span>
-                        </div>
-                        <div className="flex items-center gap-2 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-border/30 text-gray-900 dark:text-gray-100">
-                            <Calendar className="w-4 h-4 text-chart-2 dark:text-accent" />
+                        </motion.div>
+                        <motion.div 
+                            className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-border/30"
+                            whileHover={{ scale: 1.05 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <Calendar className="w-4 h-4 text-chart-2" />
                             <span>Interactive Sessions</span>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
 
                     {/* CTA Buttons */}
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                        <Button
-                            size="lg"
-                            className="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-primary to-accent dark:from-accent dark:to-primary border-primary-border transform hover:scale-105 transition-all duration-200"
-                            data-testid="button-register">
-                            Register Free Now
-                        </Button>
-                        <Button
-                            variant="outline"
-                            size="lg"
-                            className="px-8 py-4 text-lg font-semibold bg-white/20 dark:bg-gray-900/20 backdrop-blur-sm border-border/30 hover-elevate dark:text-gray-100"
-                            data-testid="button-watch-preview">
-                            Watch Preview
-                        </Button>
-                    </div>
+                    <motion.div 
+                        className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 1.2 }}
+                    >
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <Button
+                                size="lg"
+                                className="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-primary to-accent border-primary-border transition-all duration-200"
+                                data-testid="button-register"
+                                onClick={() => {
+                                  const targetElement = document.querySelector('#register');
+                                  if (targetElement) {
+                                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    setTimeout(() => window.scrollBy({ top: -80, behavior: 'smooth' }), 100);
+                                  }
+                                }}>
+                                Register Free Now
+                            </Button>
+                        </motion.div>
+                        <motion.div
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                        >
+                            <Button
+                                variant="outline"
+                                size="lg"
+                                className="px-8 py-4 text-lg font-semibold bg-card/20 backdrop-blur-sm border-border/30 hover-elevate"
+                                data-testid="button-watch-preview"
+                                onClick={() => {
+                                  const targetElement = document.querySelector('#preview');
+                                  if (targetElement) {
+                                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                                    setTimeout(() => window.scrollBy({ top: -80, behavior: 'smooth' }), 100);
+                                  }
+                                }}>
+                                Watch Preview
+                            </Button>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </div>
 
@@ -105,6 +229,6 @@ export default function Hero() {
         `,
                 }}
             />
-        </section>
+        </motion.section>
     );
 }

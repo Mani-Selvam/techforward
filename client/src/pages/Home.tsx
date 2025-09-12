@@ -4,6 +4,7 @@ import CountdownTimer from "@/components/CountdownTimer";
 import SpeakerCards from "@/components/SpeakerCards";
 import VideoPreview from "@/components/VideoPreview";
 import SocialProof from "@/components/SocialProof";
+import CharactersGallery from "@/components/CharactersGallery";
 import RegistrationForm from "@/components/RegistrationForm";
 
 export default function Home() {
@@ -24,6 +25,7 @@ export default function Home() {
                 <section id="schedule">
                     <SocialProof />
                 </section>
+                <CharactersGallery />
                 <RegistrationForm />
             </main>
 

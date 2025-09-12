@@ -104,7 +104,7 @@ export default function RegistrationForm({ onSubmit }: RegistrationFormProps) {
   }
 
   return (
-    <section className="py-24 bg-gradient-to-b from-background to-card">
+    <section id="register" className="py-24 bg-gradient-to-b from-background to-card">
       <div className="container mx-auto px-4">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">

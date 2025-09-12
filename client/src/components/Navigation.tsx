@@ -18,11 +18,15 @@ export default function Navigation() {
     // Get the target element
     const targetElement = document.querySelector(sectionId);
     if (targetElement) {
-      // Scroll to the element with smooth behavior
+      // Scroll to the element with smooth behavior and account for fixed navbar
       targetElement.scrollIntoView({ 
         behavior: 'smooth',
         block: 'start'
       });
+      // Offset for fixed navbar (80px)
+      setTimeout(() => {
+        window.scrollBy({ top: -80, behavior: 'smooth' });
+      }, 100);
     } else {
       // If no specific element, scroll to approximate positions
       const scrollPositions: { [key: string]: number } = {
@@ -30,6 +34,7 @@ export default function Navigation() {
         '#speakers': window.innerHeight * 2.5, // After countdown
         '#schedule': window.innerHeight * 4, // After speakers  
         '#preview': window.innerHeight * 5.5, // Video section
+        '#register': window.innerHeight * 6.5, // Registration section
       };
       
       const position = scrollPositions[sectionId];
@@ -85,17 +90,10 @@ export default function Navigation() {
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
             <Button 
-              variant="ghost" 
-              size="sm" 
-              className="hover-elevate"
-              data-testid="button-nav-login"
-            >
-              Sign In
-            </Button>
-            <Button 
               size="sm" 
               className="bg-gradient-to-r from-primary to-accent"
               data-testid="button-nav-register"
+              onClick={() => scrollToSection('#register')}
             >
               Register Free
             </Button>
@@ -129,17 +127,10 @@ export default function Navigation() {
               ))}
               <div className="px-4 pt-4 space-y-3 border-t border-border/20">
                 <Button 
-                  variant="ghost" 
-                  size="sm" 
-                  className="w-full justify-start hover-elevate"
-                  data-testid="button-mobile-login"
-                >
-                  Sign In
-                </Button>
-                <Button 
                   size="sm" 
                   className="w-full bg-gradient-to-r from-primary to-accent"
                   data-testid="button-mobile-register"
+                  onClick={() => scrollToSection('#register')}
                 >
                   Register Free
                   <ExternalLink className="w-4 h-4 ml-2" />
