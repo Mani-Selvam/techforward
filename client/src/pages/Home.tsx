@@ -6,6 +6,7 @@ import VideoPreview from "@/components/VideoPreview";
 import SocialProof from "@/components/SocialProof";
 import CharactersGallery from "@/components/CharactersGallery";
 import RegistrationForm from "@/components/RegistrationForm";
+import WhatsAppContact from "@/components/WhatsAppContact";
 
 export default function Home() {
     return (
@@ -28,6 +29,9 @@ export default function Home() {
                 <CharactersGallery />
                 <RegistrationForm />
             </main>
+            
+            {/* WhatsApp Contact Widget */}
+            <WhatsAppContact />
 
             {/* Footer */}
             <footer className="bg-card border-t border-border/20 py-12">
