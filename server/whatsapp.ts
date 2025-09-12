@@ -21,7 +21,17 @@ export function formatPhoneNumber(phoneNumber: string): string {
     );
   }
 
-  // Format as E.164 (+ followed by digits)
+  // Handle Indian numbers specifically - if 10 digits, add +91
+  if (digitsOnly.length === 10) {
+    return "+91" + digitsOnly;
+  }
+  
+  // If already has country code (12 digits starting with 91), format properly
+  if (digitsOnly.length === 12 && digitsOnly.startsWith('91')) {
+    return "+" + digitsOnly;
+  }
+
+  // Format as E.164 (+ followed by digits) for other cases
   return "+" + digitsOnly;
 }
 
@@ -129,16 +139,22 @@ export async function sendWhatsAppMessage(
     try {
       const client = twilio(accountSid, authToken);
 
-      // Format the target number for Twilio (need whatsapp: prefix)
+      // Format the target number for Twilio (need whatsapp: prefix and + for international)
       let toNumber: string;
       if (isClientMessage) {
-        // For client messages, use the client's number from the message
+        // For client messages, use the client's number from the message (already has +)
         toNumber = `whatsapp:${whatsappMessage.phoneNumber}`;
       } else {
-        // For admin messages, use the admin number
-        const adminPhoneNumber = "8825620014";
-        toNumber = `whatsapp:+91${adminPhoneNumber}`;
+        // For admin messages, use the admin number with proper format
+        const adminPhoneNumber = "+918825620014";
+        toNumber = `whatsapp:${adminPhoneNumber}`;
       }
+
+      // Debug logging
+      console.log(`🔍 WhatsApp API Debug:`);
+      console.log(`📤 From: ${fromNumber}`);
+      console.log(`📥 To: ${toNumber}`);
+      console.log(`📧 Message Type: ${isClientMessage ? 'CLIENT CONFIRMATION' : 'ADMIN NOTIFICATION'}`);
 
       const message = await client.messages.create({
         body: whatsappMessage.message,
@@ -151,6 +167,7 @@ export async function sendWhatsAppMessage(
       console.log(`📱 Sent to: ${toNumber}`);
     } catch (error: any) {
       console.error("❌ Failed to send WhatsApp message:", error.message);
+      console.error(`🔍 Error details:`, error);
 
       // Fall back to logging the URL for manual sending
       console.log("💡 Fallback - Open this URL to send manually:");
