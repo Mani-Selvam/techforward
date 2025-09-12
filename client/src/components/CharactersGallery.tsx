@@ -3,9 +3,6 @@ import { Badge } from "@/components/ui/badge";
 import { Users } from "lucide-react";
 import techEntrepreneur from "@assets/generated_images/Tech_entrepreneur_character_5fda40d4.png";
 import creativeDesigner from "@assets/generated_images/Creative_designer_character_c28b0128.png";
-import softwareDeveloper from "@assets/generated_images/Software_developer_character_2df98a90.png";
-import businessLeader from "@assets/generated_images/Business_leader_character_c3d1eda0.png";
-import dataScientist from "@assets/generated_images/Data_scientist_character_3d756688.png";
 
 const characters = [
   {
@@ -22,27 +19,6 @@ const characters = [
     image: creativeDesigner,
     description: "Designing immersive digital experiences"
   },
-  {
-    id: "developer",
-    name: "Sam Taylor",
-    role: "Lead Developer",
-    image: softwareDeveloper,
-    description: "Crafting next-generation applications"
-  },
-  {
-    id: "leader",
-    name: "Jordan Blake",
-    role: "Business Leader",
-    image: businessLeader,
-    description: "Driving strategic digital transformation"
-  },
-  {
-    id: "scientist",
-    name: "Dr. Riley Park",
-    role: "Data Scientist",
-    image: dataScientist,
-    description: "Unlocking insights from complex data"
-  }
 ];
 
 const containerVariants = {
@@ -97,7 +73,7 @@ export default function CharactersGallery() {
         </div>
 
         <motion.div 
-          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
