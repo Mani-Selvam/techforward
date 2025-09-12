@@ -16,18 +16,19 @@ export default function Navigation() {
     setIsMenuOpen(false);
     
     // Get the target element
-    const targetElement = document.querySelector(sectionId);
+    const targetElement = document.querySelector(sectionId) as HTMLElement;
     if (targetElement) {
-      // Scroll to the element with smooth behavior and account for fixed navbar
-      targetElement.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
+      // Use direct scroll with offset for better precision
+      const headerOffset = 100;
+      const elementPosition = targetElement.offsetTop;
+      const offsetPosition = elementPosition - headerOffset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
       });
-      // Offset for fixed navbar (80px)
-      setTimeout(() => {
-        window.scrollBy({ top: -80, behavior: 'smooth' });
-      }, 100);
     } else {
+      console.log(`Element ${sectionId} not found`);
       // If no specific element, scroll to approximate positions
       const scrollPositions: { [key: string]: number } = {
         '#about': window.innerHeight, // After hero

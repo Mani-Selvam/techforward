@@ -186,10 +186,19 @@ export default function Hero() {
                                 className="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-primary to-accent border-primary-border transition-all duration-200"
                                 data-testid="button-register"
                                 onClick={() => {
-                                  const targetElement = document.querySelector('#register');
+                                  console.log('Scrolling to #register');
+                                  const targetElement = document.querySelector('#register') as HTMLElement;
                                   if (targetElement) {
-                                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                    setTimeout(() => window.scrollBy({ top: -80, behavior: 'smooth' }), 100);
+                                    const headerOffset = 100;
+                                    const elementPosition = targetElement.offsetTop;
+                                    const offsetPosition = elementPosition - headerOffset;
+                                    
+                                    window.scrollTo({
+                                      top: offsetPosition,
+                                      behavior: 'smooth'
+                                    });
+                                  } else {
+                                    console.log('Register element not found');
                                   }
                                 }}>
                                 Register Free Now

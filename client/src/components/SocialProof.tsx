@@ -36,11 +36,7 @@ const testimonials = [
 
 const partners = [
   { name: "TechForward", logo: "TF" },
-  { name: "InnovateCorp", logo: "IC" },
-  { name: "FutureWorks", logo: "FW" },
-  { name: "DigitalFirst", logo: "DF" },
-  { name: "CreativeStudio", logo: "CS" },
-  { name: "TechVision", logo: "TV" }
+  { name: "InnovateCorp", logo: "IC" }
 ];
 
 export default function SocialProof() {
@@ -99,23 +95,26 @@ export default function SocialProof() {
           ))}
         </div>
 
-        {/* Partner Logos */}
+        {/* Industry Leaders */}
         <div className="text-center">
           <h3 className="text-xl font-semibold mb-8 text-muted-foreground">
-            Trusted by Leading Companies
+            Industry Leaders
           </h3>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-60">
+          <div className="flex justify-center items-center gap-12">
             {partners.map((partner, index) => (
               <div 
                 key={index}
                 className="group hover-elevate transition-all duration-300 hover:opacity-100"
                 data-testid={`logo-partner-${index}`}
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg flex items-center justify-center border border-border/20 group-hover:border-primary/30 transition-all duration-300">
-                  <span className="font-bold text-lg text-foreground/80 group-hover:text-primary transition-colors duration-300">
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/20 to-accent/20 rounded-xl flex items-center justify-center border border-border/30 group-hover:border-primary/40 transition-all duration-300 shadow-lg">
+                  <span className="font-bold text-xl text-foreground group-hover:text-primary transition-colors duration-300">
                     {partner.logo}
                   </span>
                 </div>
+                <p className="mt-3 text-sm font-medium text-muted-foreground group-hover:text-foreground transition-colors duration-300">
+                  {partner.name}
+                </p>
               </div>
             ))}
           </div>
