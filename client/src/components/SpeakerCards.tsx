@@ -32,19 +32,6 @@ const speakers = [
     },
     topics: ["3D Design", "Web Innovation"]
   },
-  {
-    id: 3,
-    name: "Elena Kowalski",
-    title: "Product Strategy VP",
-    company: "FutureWorks Inc",
-    bio: "Visionary leader shaping the future of remote collaboration and digital workspaces.",
-    avatar: "",
-    social: {
-      linkedin: "#",
-      twitter: "#"
-    },
-    topics: ["Strategy", "Remote Work"]
-  }
 ];
 
 export default function SpeakerCards() {
