@@ -167,7 +167,17 @@ export async function sendWhatsAppMessage(
       console.log(`📱 Sent to: ${toNumber}`);
     } catch (error: any) {
       console.error("❌ Failed to send WhatsApp message:", error.message);
-      console.error(`🔍 Error details:`, error);
+      
+      // Check if it's a sandbox verification error
+      if (error.code === 21910) {
+        console.log("🔧 SOLUTION: This is a Twilio WhatsApp sandbox verification issue.");
+        console.log("📱 To enable real-time WhatsApp messages:");
+        console.log("1. Open WhatsApp on your phone");
+        console.log("2. Send this message to +1 415 523 8886:");
+        console.log("   join <your-sandbox-code>");
+        console.log("3. Wait for confirmation from Twilio");
+        console.log("4. Then try registering again");
+      }
 
       // Fall back to logging the URL for manual sending
       console.log("💡 Fallback - Open this URL to send manually:");

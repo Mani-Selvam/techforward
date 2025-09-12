@@ -39,7 +39,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
       res.status(201).json({ 
         success: true, 
-        message: "Registration successful! Check your email for confirmation.",
+        message: "Registration successful! You'll receive WhatsApp confirmation instantly. Check your email too.",
         registrationId: registration.id
       });
     } catch (error: any) {
