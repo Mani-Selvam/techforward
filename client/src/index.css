@@ -13,41 +13,41 @@
   --elevate-1: rgba(0, 0, 0, .03);
   --elevate-2: rgba(0, 0, 0, .08);
 
-  /* Dark Cyberpunk Neon Palette - Light Mode Base */
-  --background: 0 0% 8%;
-  --foreground: 0 0% 95%;
-  --border: 84 100% 35%;
-  --card: 0 0% 12%;
-  --card-foreground: 0 0% 95%;
-  --card-border: 84 100% 35%;
-  --sidebar: 0 0% 10%;
-  --sidebar-foreground: 0 0% 95%;
-  --sidebar-border: 84 100% 35%;
-  --sidebar-primary: 84 100% 76%;
-  --sidebar-primary-foreground: 0 0% 8%;
-  --sidebar-accent: 60 100% 96%;
-  --sidebar-accent-foreground: 0 0% 8%;
-  --sidebar-ring: 84 100% 76%;
-  --popover: 0 0% 12%;
-  --popover-foreground: 0 0% 95%;
-  --popover-border: 84 100% 35%;
-  --primary: 84 100% 76%;
-  --primary-foreground: 0 0% 8%;
-  --secondary: 0 0% 20%;
-  --secondary-foreground: 0 0% 95%;
-  --muted: 0 0% 15%;
-  --muted-foreground: 0 0% 70%;
-  --accent: 60 100% 96%;
-  --accent-foreground: 0 0% 8%;
+  /* Light Mode with Neon Accents */
+  --background: 0 0% 100%;
+  --foreground: 0 0% 8%;
+  --border: 84 40% 60%;
+  --card: 0 0% 98%;
+  --card-foreground: 0 0% 8%;
+  --card-border: 84 40% 60%;
+  --sidebar: 0 0% 96%;
+  --sidebar-foreground: 0 0% 8%;
+  --sidebar-border: 84 40% 60%;
+  --sidebar-primary: 84 80% 45%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 60 80% 50%;
+  --sidebar-accent-foreground: 0 0% 100%;
+  --sidebar-ring: 84 80% 45%;
+  --popover: 0 0% 98%;
+  --popover-foreground: 0 0% 8%;
+  --popover-border: 84 40% 60%;
+  --primary: 84 80% 45%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 0 0% 90%;
+  --secondary-foreground: 0 0% 8%;
+  --muted: 0 0% 94%;
+  --muted-foreground: 0 0% 40%;
+  --accent: 60 80% 50%;
+  --accent-foreground: 0 0% 100%;
   --destructive: 0 85% 55%;
-  --destructive-foreground: 0 0% 95%;
-  --input: 0 0% 20%;
-  --ring: 84 100% 76%;
-  --chart-1: 84 100% 76%;
-  --chart-2: 102 100% 58%;
-  --chart-3: 60 100% 96%;
-  --chart-4: 84 100% 64%;
-  --chart-5: 102 100% 70%;
+  --destructive-foreground: 0 0% 100%;
+  --input: 0 0% 96%;
+  --ring: 84 80% 45%;
+  --chart-1: 84 80% 45%;
+  --chart-2: 102 80% 40%;
+  --chart-3: 60 80% 50%;
+  --chart-4: 84 70% 50%;
+  --chart-5: 102 70% 45%;
 
   --font-sans: 'Poppins', 'Inter', sans-serif;
   --font-serif: Georgia, serif;
@@ -166,27 +166,46 @@
  */
 @layer utilities {
 
-  /* Neon Glow Effects */
-  .neon-glow {
+  /* Neon Glow Effects - Dark Mode */
+  .dark .neon-glow {
     background: rgba(0, 0, 0, 0.8);
     border: 1px solid #C6FF00;
     box-shadow: 0 0 20px rgba(198, 255, 0, 0.3), inset 0 0 20px rgba(198, 255, 0, 0.1);
   }
 
-  .neon-glow-yellow {
+  .dark .neon-glow-yellow {
     background: rgba(0, 0, 0, 0.8);
     border: 1px solid #F5FF00;
     box-shadow: 0 0 20px rgba(245, 255, 0, 0.3), inset 0 0 20px rgba(245, 255, 0, 0.1);
   }
 
-  .neon-glow-green {
+  .dark .neon-glow-green {
     background: rgba(0, 0, 0, 0.8);
     border: 1px solid #39FF14;
     box-shadow: 0 0 25px rgba(57, 255, 20, 0.4), inset 0 0 15px rgba(57, 255, 20, 0.1);
   }
 
-  /* Neon Button Effects */
-  .btn-neon {
+  /* Neon Glow Effects - Light Mode */
+  .neon-glow {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #7CB342;
+    box-shadow: 0 0 15px rgba(124, 179, 66, 0.4), inset 0 0 10px rgba(124, 179, 66, 0.1);
+  }
+
+  .neon-glow-yellow {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #FDD835;
+    box-shadow: 0 0 15px rgba(253, 216, 53, 0.4), inset 0 0 10px rgba(253, 216, 53, 0.1);
+  }
+
+  .neon-glow-green {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #66BB6A;
+    box-shadow: 0 0 20px rgba(102, 187, 106, 0.5), inset 0 0 10px rgba(102, 187, 106, 0.1);
+  }
+
+  /* Neon Button Effects - Dark Mode */
+  .dark .btn-neon {
     background: linear-gradient(45deg, #C6FF00, #A3FF12);
     border: 2px solid #C6FF00;
     box-shadow: 0 0 20px rgba(198, 255, 0, 0.4), 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -195,14 +214,14 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .btn-neon:hover {
+  .dark .btn-neon:hover {
     transform: scale(1.05) translateY(-2px);
     box-shadow: 0 0 30px rgba(198, 255, 0, 0.6), 0 0 15px rgba(57, 255, 20, 0.4), 0 8px 25px rgba(0, 0, 0, 0.4);
     border-color: #39FF14;
     background: linear-gradient(45deg, #39FF14, #C6FF00);
   }
 
-  .btn-neon-yellow {
+  .dark .btn-neon-yellow {
     background: linear-gradient(45deg, #F5FF00, #C6FF00);
     border: 2px solid #F5FF00;
     box-shadow: 0 0 20px rgba(245, 255, 0, 0.4), 0 4px 15px rgba(0, 0, 0, 0.3);
@@ -211,9 +230,40 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .btn-neon-yellow:hover {
+  .dark .btn-neon-yellow:hover {
     transform: scale(1.05) translateY(-2px);
     box-shadow: 0 0 30px rgba(245, 255, 0, 0.6), 0 0 15px rgba(198, 255, 0, 0.4), 0 8px 25px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Neon Button Effects - Light Mode */
+  .btn-neon {
+    background: linear-gradient(45deg, #7CB342, #8BC34A);
+    border: 2px solid #7CB342;
+    box-shadow: 0 0 15px rgba(124, 179, 66, 0.3), 0 4px 15px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-neon:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 0 25px rgba(124, 179, 66, 0.5), 0 0 10px rgba(102, 187, 106, 0.3), 0 8px 25px rgba(0, 0, 0, 0.2);
+    border-color: #66BB6A;
+    background: linear-gradient(45deg, #66BB6A, #7CB342);
+  }
+
+  .btn-neon-yellow {
+    background: linear-gradient(45deg, #FDD835, #FBC02D);
+    border: 2px solid #FDD835;
+    box-shadow: 0 0 15px rgba(253, 216, 53, 0.3), 0 4px 15px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-neon-yellow:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 0 25px rgba(253, 216, 53, 0.5), 0 0 10px rgba(251, 192, 45, 0.3), 0 8px 25px rgba(0, 0, 0, 0.2);
   }
 
   /* Simplified card hover with subtle transform only */
@@ -287,10 +337,16 @@
     }
   }
 
-  /* Neon Text Glow */
-  .text-neon {
+  /* Neon Text Glow - Dark Mode */
+  .dark .text-neon {
     color: #C6FF00;
     text-shadow: 0 0 10px #C6FF00, 0 0 20px #C6FF00, 0 0 30px #39FF14;
+  }
+
+  /* Neon Text Glow - Light Mode */
+  .text-neon {
+    color: #7CB342;
+    text-shadow: 0 0 8px #7CB342, 0 0 15px #66BB6A, 0 0 20px #4CAF50;
   }
 
   .text-neon-yellow {
