@@ -56,13 +56,13 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/20">
+    <nav className="fixed top-0 left-0 right-0 z-50 glass border-b border-primary/20">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
-              <Calendar className="w-5 h-5 text-primary-foreground" />
+            <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center hover-elevate">
+              <Calendar className="w-5 h-5 text-primary-foreground icon-hover" />
             </div>
             <div>
               <span className="font-bold text-lg" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
@@ -80,7 +80,7 @@ export default function Navigation() {
               <button
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
-                className="text-muted-foreground hover:text-foreground transition-colors duration-200 font-medium"
+                className="text-muted-foreground hover:text-foreground nav-link transition-colors duration-200 font-medium"
                 data-testid={`nav-${item.label.toLowerCase()}`}
               >
                 {item.label}
@@ -92,7 +92,7 @@ export default function Navigation() {
           <div className="hidden md:flex items-center gap-4">
             <Button 
               size="sm" 
-              className="bg-gradient-to-r from-primary to-accent"
+              className="bg-gradient-to-r from-primary to-accent hover-elevate rounded-xl"
               data-testid="button-nav-register"
               onClick={() => scrollToSection('#register')}
             >

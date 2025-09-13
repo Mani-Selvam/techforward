@@ -23,10 +23,10 @@ const speakers = [
 
 export default function SpeakerCards() {
   return (
-    <section className="py-24 bg-gradient-to-b from-card to-background">
+    <section className="py-24 bg-gradient-to-b from-primary/5 via-accent/10 to-background gradient-animate">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <Badge variant="outline" className="mb-4 bg-accent/10 text-accent border-accent/20">
+          <Badge variant="outline" className="mb-4 glass-card text-accent border-accent/30">
             Expert Speakers
           </Badge>
           <h2 className="text-4xl font-bold mb-4" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
@@ -41,7 +41,7 @@ export default function SpeakerCards() {
           {speakers.map((speaker) => (
             <Card 
               key={speaker.id} 
-              className="group hover-elevate border-border/50 bg-card/50 backdrop-blur-sm transform hover:scale-105 transition-all duration-300"
+              className="group glass-card hover-elevate card-hover transition-all duration-300"
               data-testid={`card-speaker-${speaker.id}`}
             >
               <CardContent className="p-8 text-center">

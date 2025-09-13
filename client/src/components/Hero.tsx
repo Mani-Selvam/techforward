@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function Hero() {
     return (
         <motion.section 
-            className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-card to-background"
+            className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-accent/10 to-chart-2/5 gradient-animate"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
@@ -93,8 +93,8 @@ export default function Hero() {
                     >
                         <Badge
                             variant="outline"
-                            className="mx-auto px-4 py-2 text-sm font-medium bg-card/80 backdrop-blur-sm border-primary/30">
-                            <Calendar className="w-4 h-4 mr-2 text-primary" />
+                            className="mx-auto px-6 py-3 text-sm font-medium glass-card border-primary/40">
+                            <Calendar className="w-4 h-4 mr-2 text-primary icon-hover" />
                             March 15, 2025 • 2:00 PM EST
                         </Badge>
                     </motion.div>
@@ -145,27 +145,27 @@ export default function Hero() {
                         transition={{ duration: 0.6, delay: 1.0 }}
                     >
                         <motion.div 
-                            className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-border/30"
+                            className="flex items-center gap-2 glass-card px-6 py-3 card-float"
                             whileHover={{ scale: 1.05 }}
                             transition={{ duration: 0.2 }}
                         >
-                            <Users className="w-4 h-4 text-primary" />
+                            <Users className="w-4 h-4 text-primary icon-hover" />
                             <span>500+ Attendees</span>
                         </motion.div>
                         <motion.div 
-                            className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-border/30"
+                            className="flex items-center gap-2 glass-card px-6 py-3 card-float"
                             whileHover={{ scale: 1.05 }}
                             transition={{ duration: 0.2 }}
                         >
-                            <Clock className="w-4 h-4 text-accent" />
+                            <Clock className="w-4 h-4 text-accent icon-hover" />
                             <span>90 Minutes</span>
                         </motion.div>
                         <motion.div 
-                            className="flex items-center gap-2 bg-card/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-border/30"
+                            className="flex items-center gap-2 glass-card px-6 py-3 card-float"
                             whileHover={{ scale: 1.05 }}
                             transition={{ duration: 0.2 }}
                         >
-                            <Calendar className="w-4 h-4 text-chart-2" />
+                            <Calendar className="w-4 h-4 text-chart-2 icon-hover" />
                             <span>Interactive Sessions</span>
                         </motion.div>
                     </motion.div>
@@ -183,7 +183,7 @@ export default function Hero() {
                         >
                             <Button
                                 size="lg"
-                                className="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-primary to-accent border-primary-border transition-all duration-200"
+                                className="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-primary to-accent border-primary-border hover-elevate rounded-2xl"
                                 data-testid="button-register"
                                 onClick={() => {
                                   console.log('Scrolling to #register');
@@ -211,7 +211,7 @@ export default function Hero() {
                             <Button
                                 variant="outline"
                                 size="lg"
-                                className="px-8 py-4 text-lg font-semibold bg-card/20 backdrop-blur-sm border-border/30 hover-elevate"
+                                className="px-8 py-4 text-lg font-semibold glass-card border-accent/30 hover-elevate rounded-2xl"
                                 data-testid="button-watch-preview"
                                 onClick={() => {
                                   const targetElement = document.querySelector('#preview');
