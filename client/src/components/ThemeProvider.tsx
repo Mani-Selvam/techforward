@@ -28,13 +28,22 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
       setTheme(savedTheme);
     }
 
+    // For testing - always show popup (remove this line after testing)
+    localStorage.removeItem("hasSeenThemeChoice");
+
     // Check if theme choice popup has been shown before
     const hasSeenThemeChoice = localStorage.getItem("hasSeenThemeChoice");
+    console.log('Theme popup - hasSeenThemeChoice:', hasSeenThemeChoice);
+    
     if (!hasSeenThemeChoice) {
-      // Show popup after 5 seconds
+      console.log('Setting up theme popup timeout for 3 seconds');
+      // Show popup after 3 seconds (shorter for testing)
       timeoutRef.current = setTimeout(() => {
+        console.log('Showing theme popup now!');
         setShowThemeChoice({ isVisible: true });
-      }, 5000);
+      }, 3000);
+    } else {
+      console.log('Theme popup blocked - user has already seen it');
     }
   }, []);
 
@@ -81,9 +90,10 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
       
       {/* One-time Theme Choice Popup */}
       {showThemeChoice && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm">
+        <div className="fixed inset-0 z-[999] flex items-center justify-center bg-black/90 backdrop-blur-sm">
           <div 
-            className="neon-glow p-8 rounded-xl border border-primary/40 backdrop-blur-md max-w-md mx-4"
+            className="bg-white dark:bg-gray-900 p-8 rounded-xl border-2 border-blue-500 shadow-2xl max-w-md mx-4"
+            style={{ boxShadow: '0 0 50px rgba(0, 180, 255, 0.5)' }}
             data-testid="popup-theme-choice"
           >
             <div className="text-center space-y-6">
