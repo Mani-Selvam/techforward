@@ -56,19 +56,19 @@ export default function Navigation() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 neon-glow border-b border-primary/40">
+    <nav className="fixed top-0 left-0 right-0 z-50 neon-glow">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-xl flex items-center justify-center hover-elevate pulse-glow">
-              <Calendar className="w-5 h-5 text-primary-foreground icon-hover" />
+              <Calendar className="w-5 h-5 text-primary-foreground icon-neon" />
             </div>
             <div>
               <span className="font-bold text-lg" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
                 TechForward
               </span>
-              <Badge variant="outline" className="ml-2 text-xs bg-primary/10 text-primary border-primary/20">
+              <Badge variant="outline" className="ml-2 text-xs neon-glow text-primary border-primary/40">
                 2025
               </Badge>
             </div>
