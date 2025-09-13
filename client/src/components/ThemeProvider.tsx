@@ -5,7 +5,6 @@ type Theme = "light" | "dark";
 interface ThemeContextType {
   theme: Theme;
   toggleTheme: () => void;
-  showNotification: (message: string) => void;
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
@@ -14,21 +13,28 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 
-interface Notification {
-  id: string;
-  message: string;
+interface ThemeChoice {
   isVisible: boolean;
 }
 
 export function ThemeProvider({ children }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>("dark");
-  const [notification, setNotification] = useState<Notification | null>(null);
+  const [showThemeChoice, setShowThemeChoice] = useState<ThemeChoice | null>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as Theme;
     if (savedTheme) {
       setTheme(savedTheme);
+    }
+
+    // Check if theme choice popup has been shown before
+    const hasSeenThemeChoice = localStorage.getItem("hasSeenThemeChoice");
+    if (!hasSeenThemeChoice) {
+      // Show popup after 15 seconds
+      timeoutRef.current = setTimeout(() => {
+        setShowThemeChoice({ isVisible: true });
+      }, 15000);
     }
   }, []);
 
@@ -42,20 +48,17 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     }
   }, [theme]);
 
-  const showNotification = (message: string) => {
-    // Clear any existing timeout
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
-    
-    const id = Date.now().toString();
-    setNotification({ id, message, isVisible: true });
-    
-    // Auto-hide after 15 seconds
-    timeoutRef.current = setTimeout(() => {
-      setNotification(null);
-      timeoutRef.current = null;
-    }, 15000);
+  const handleThemeChoice = (selectedTheme: Theme) => {
+    setTheme(selectedTheme);
+    setShowThemeChoice(null);
+    // Mark that user has seen the theme choice popup
+    localStorage.setItem("hasSeenThemeChoice", "true");
+  };
+
+  const dismissThemeChoice = () => {
+    setShowThemeChoice(null);
+    // Mark that user has seen the theme choice popup
+    localStorage.setItem("hasSeenThemeChoice", "true");
   };
 
   // Cleanup timeout on unmount
@@ -70,25 +73,51 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
   const toggleTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    showNotification(`${newTheme === "dark" ? "Dark" : "Light"} mode activated`);
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme, showNotification }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
       
-      {/* Notification Popup */}
-      {notification && (
-        <div 
-          className="fixed top-4 right-4 z-[100] animate-in slide-in-from-right duration-300"
-          data-testid="status-theme-notification"
-        >
-          <div className="neon-glow p-4 rounded-xl border border-primary/40 backdrop-blur-md max-w-sm">
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 bg-primary rounded-full pulse-glow"></div>
-              <span className="text-sm font-medium text-foreground">
-                {notification.message}
-              </span>
+      {/* One-time Theme Choice Popup */}
+      {showThemeChoice && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm">
+          <div 
+            className="neon-glow p-8 rounded-xl border border-primary/40 backdrop-blur-md max-w-md mx-4"
+            data-testid="popup-theme-choice"
+          >
+            <div className="text-center space-y-6">
+              <div className="space-y-2">
+                <h3 className="text-xl font-bold text-neon">Choose Your Experience</h3>
+                <p className="text-muted-foreground">
+                  Would you like to change the theme colors for a better viewing experience?
+                </p>
+              </div>
+              
+              <div className="flex gap-4 justify-center">
+                <button
+                  onClick={() => handleThemeChoice("dark")}
+                  className="btn-neon px-6 py-3 rounded-xl font-medium"
+                  data-testid="button-choose-dark"
+                >
+                  Dark Mode
+                </button>
+                <button
+                  onClick={() => handleThemeChoice("light")}
+                  className="btn-neon-yellow px-6 py-3 rounded-xl font-medium"
+                  data-testid="button-choose-light"
+                >
+                  Light Mode
+                </button>
+              </div>
+              
+              <button
+                onClick={dismissThemeChoice}
+                className="text-muted-foreground hover:text-foreground transition-colors text-sm"
+                data-testid="button-dismiss-popup"
+              >
+                Keep current theme
+              </button>
             </div>
           </div>
         </div>
