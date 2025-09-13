@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 export default function Hero() {
     return (
         <motion.section 
-            className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-accent/10 to-chart-2/5 gradient-animate"
+            className="relative min-h-screen flex items-center justify-center overflow-hidden cyber-bg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
@@ -15,7 +15,7 @@ export default function Hero() {
             <div className="absolute inset-0">
                 {/* Gradient blobs */}
                 <motion.div
-                    className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-3xl"
+                    className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full blur-3xl pulse-glow"
                     animate={{
                         x: [0, 100, 0],
                         y: [0, -50, 0],
@@ -93,8 +93,8 @@ export default function Hero() {
                     >
                         <Badge
                             variant="outline"
-                            className="mx-auto px-6 py-3 text-sm font-medium glass-card border-primary/40">
-                            <Calendar className="w-4 h-4 mr-2 text-primary icon-hover" />
+                            className="mx-auto px-6 py-3 text-sm font-medium neon-glow border-primary/60 pulse-glow">
+                            <Calendar className="w-4 h-4 mr-2 text-primary icon-neon" />
                             March 15, 2025 • 2:00 PM EST
                         </Badge>
                     </motion.div>
@@ -112,7 +112,7 @@ export default function Hero() {
                             Future of Digital
                             <br />
                             <motion.span 
-                                className="bg-gradient-to-r from-primary via-accent to-chart-2 bg-clip-text text-transparent"
+                                className="text-neon"
                                 animate={{
                                     backgroundPosition: ["0%", "100%", "0%"]
                                 }}
@@ -145,27 +145,24 @@ export default function Hero() {
                         transition={{ duration: 0.6, delay: 1.0 }}
                     >
                         <motion.div 
-                            className="flex items-center gap-2 glass-card px-6 py-3 card-float"
-                            whileHover={{ scale: 1.05 }}
+                            className="flex items-center gap-2 neon-glow px-6 py-3 hover-elevate fade-slide-up"
                             transition={{ duration: 0.2 }}
                         >
-                            <Users className="w-4 h-4 text-primary icon-hover" />
+                            <Users className="w-4 h-4 text-primary icon-neon" />
                             <span>500+ Attendees</span>
                         </motion.div>
                         <motion.div 
-                            className="flex items-center gap-2 glass-card px-6 py-3 card-float"
-                            whileHover={{ scale: 1.05 }}
+                            className="flex items-center gap-2 neon-glow-yellow px-6 py-3 hover-elevate fade-slide-up"
                             transition={{ duration: 0.2 }}
                         >
-                            <Clock className="w-4 h-4 text-accent icon-hover" />
+                            <Clock className="w-4 h-4 text-accent icon-neon" />
                             <span>90 Minutes</span>
                         </motion.div>
                         <motion.div 
-                            className="flex items-center gap-2 glass-card px-6 py-3 card-float"
-                            whileHover={{ scale: 1.05 }}
+                            className="flex items-center gap-2 neon-glow-green px-6 py-3 hover-elevate fade-slide-up"
                             transition={{ duration: 0.2 }}
                         >
-                            <Calendar className="w-4 h-4 text-chart-2 icon-hover" />
+                            <Calendar className="w-4 h-4 text-chart-2 icon-neon" />
                             <span>Interactive Sessions</span>
                         </motion.div>
                     </motion.div>
@@ -183,7 +180,7 @@ export default function Hero() {
                         >
                             <Button
                                 size="lg"
-                                className="px-8 py-4 text-lg font-semibold bg-gradient-to-r from-primary to-accent border-primary-border hover-elevate rounded-2xl"
+                                className="px-8 py-4 text-lg font-semibold btn-neon rounded-xl"
                                 data-testid="button-register"
                                 onClick={() => {
                                   console.log('Scrolling to #register');
@@ -211,7 +208,7 @@ export default function Hero() {
                             <Button
                                 variant="outline"
                                 size="lg"
-                                className="px-8 py-4 text-lg font-semibold glass-card border-accent/30 hover-elevate rounded-2xl"
+                                className="px-8 py-4 text-lg font-semibold btn-neon-yellow rounded-xl"
                                 data-testid="button-watch-preview"
                                 onClick={() => {
                                   const targetElement = document.querySelector('#preview');

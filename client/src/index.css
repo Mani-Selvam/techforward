@@ -13,41 +13,41 @@
   --elevate-1: rgba(0, 0, 0, .03);
   --elevate-2: rgba(0, 0, 0, .08);
 
-  /* Vibrant Digital Agency Palette */
-  --background: 240 40% 98%;
-  --foreground: 240 30% 15%;
-  --border: 240 20% 88%;
-  --card: 255 40% 98%;
-  --card-foreground: 240 30% 15%;
-  --card-border: 240 20% 85%;
-  --sidebar: 240 30% 96%;
-  --sidebar-foreground: 240 30% 15%;
-  --sidebar-border: 240 20% 85%;
-  --sidebar-primary: 260 100% 70%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 180 100% 85%;
-  --sidebar-accent-foreground: 240 30% 15%;
-  --sidebar-ring: 260 100% 70%;
-  --popover: 240 40% 98%;
-  --popover-foreground: 240 30% 15%;
-  --popover-border: 240 20% 85%;
-  --primary: 260 100% 70%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 240 25% 92%;
-  --secondary-foreground: 240 30% 15%;
-  --muted: 240 20% 94%;
-  --muted-foreground: 240 15% 45%;
-  --accent: 180 100% 60%;
-  --accent-foreground: 0 0% 100%;
+  /* Dark Cyberpunk Neon Palette - Light Mode Base */
+  --background: 0 0% 8%;
+  --foreground: 0 0% 95%;
+  --border: 84 100% 35%;
+  --card: 0 0% 12%;
+  --card-foreground: 0 0% 95%;
+  --card-border: 84 100% 35%;
+  --sidebar: 0 0% 10%;
+  --sidebar-foreground: 0 0% 95%;
+  --sidebar-border: 84 100% 35%;
+  --sidebar-primary: 84 100% 76%;
+  --sidebar-primary-foreground: 0 0% 8%;
+  --sidebar-accent: 60 100% 96%;
+  --sidebar-accent-foreground: 0 0% 8%;
+  --sidebar-ring: 84 100% 76%;
+  --popover: 0 0% 12%;
+  --popover-foreground: 0 0% 95%;
+  --popover-border: 84 100% 35%;
+  --primary: 84 100% 76%;
+  --primary-foreground: 0 0% 8%;
+  --secondary: 0 0% 20%;
+  --secondary-foreground: 0 0% 95%;
+  --muted: 0 0% 15%;
+  --muted-foreground: 0 0% 70%;
+  --accent: 60 100% 96%;
+  --accent-foreground: 0 0% 8%;
   --destructive: 0 85% 55%;
-  --destructive-foreground: 0 0% 100%;
-  --input: 240 20% 85%;
-  --ring: 260 100% 70%;
-  --chart-1: 260 100% 70%;
-  --chart-2: 280 90% 65%;
-  --chart-3: 180 100% 60%;
-  --chart-4: 200 85% 65%;
-  --chart-5: 220 90% 70%;
+  --destructive-foreground: 0 0% 95%;
+  --input: 0 0% 20%;
+  --ring: 84 100% 76%;
+  --chart-1: 84 100% 76%;
+  --chart-2: 102 100% 58%;
+  --chart-3: 60 100% 96%;
+  --chart-4: 84 100% 64%;
+  --chart-5: 102 100% 70%;
 
   --font-sans: 'Poppins', 'Inter', sans-serif;
   --font-serif: Georgia, serif;
@@ -88,41 +88,41 @@
   --elevate-1: rgba(255, 255, 255, .04);
   --elevate-2: rgba(255, 255, 255, .09);
 
-  /* Vibrant Dark Agency Palette */
-  --background: 240 40% 8%;
+  /* Enhanced Dark Cyberpunk Neon Palette */
+  --background: 0 0% 4%;
   --foreground: 0 0% 98%;
-  --border: 240 25% 20%;
-  --card: 240 35% 12%;
+  --border: 84 100% 40%;
+  --card: 0 0% 8%;
   --card-foreground: 0 0% 98%;
-  --card-border: 240 25% 22%;
-  --sidebar: 240 35% 10%;
+  --card-border: 84 100% 40%;
+  --sidebar: 0 0% 6%;
   --sidebar-foreground: 0 0% 98%;
-  --sidebar-border: 240 25% 18%;
-  --sidebar-primary: 260 100% 75%;
-  --sidebar-primary-foreground: 240 40% 8%;
-  --sidebar-accent: 180 100% 35%;
-  --sidebar-accent-foreground: 0 0% 98%;
-  --sidebar-ring: 260 100% 75%;
-  --popover: 240 40% 12%;
+  --sidebar-border: 84 100% 40%;
+  --sidebar-primary: 84 100% 80%;
+  --sidebar-primary-foreground: 0 0% 4%;
+  --sidebar-accent: 60 100% 100%;
+  --sidebar-accent-foreground: 0 0% 4%;
+  --sidebar-ring: 84 100% 80%;
+  --popover: 0 0% 8%;
   --popover-foreground: 0 0% 98%;
-  --popover-border: 240 25% 25%;
-  --primary: 260 100% 75%;
-  --primary-foreground: 240 40% 8%;
-  --secondary: 240 20% 22%;
+  --popover-border: 84 100% 40%;
+  --primary: 84 100% 80%;
+  --primary-foreground: 0 0% 4%;
+  --secondary: 0 0% 15%;
   --secondary-foreground: 0 0% 98%;
-  --muted: 240 20% 18%;
-  --muted-foreground: 240 15% 70%;
-  --accent: 180 100% 65%;
-  --accent-foreground: 0 0% 100%;
+  --muted: 0 0% 12%;
+  --muted-foreground: 0 0% 75%;
+  --accent: 60 100% 100%;
+  --accent-foreground: 0 0% 4%;
   --destructive: 0 85% 60%;
-  --destructive-foreground: 240 40% 8%;
-  --input: 240 20% 25%;
-  --ring: 260 100% 75%;
-  --chart-1: 260 100% 75%;
-  --chart-2: 280 90% 70%;
-  --chart-3: 180 100% 65%;
-  --chart-4: 200 85% 70%;
-  --chart-5: 220 90% 75%;
+  --destructive-foreground: 0 0% 98%;
+  --input: 0 0% 15%;
+  --ring: 84 100% 80%;
+  --chart-1: 84 100% 80%;
+  --chart-2: 102 100% 60%;
+  --chart-3: 60 100% 100%;
+  --chart-4: 84 100% 68%;
+  --chart-5: 102 100% 75%;
 
   --shadow-2xs: 0px 1px 2px 0px hsl(222 47% 5% / 0.15);
   --shadow-xs: 0px 1px 3px 0px hsl(222 47% 5% / 0.20);
@@ -166,22 +166,55 @@
  */
 @layer utilities {
 
-  /* Modern Glassmorphism Effects */
-  .glass {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+  /* Neon Glow Effects */
+  .neon-glow {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #C6FF00;
+    box-shadow: 0 0 20px rgba(198, 255, 0, 0.3), inset 0 0 20px rgba(198, 255, 0, 0.1);
   }
 
-  .glass-dark {
-    background: rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  .neon-glow-yellow {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #F5FF00;
+    box-shadow: 0 0 20px rgba(245, 255, 0, 0.3), inset 0 0 20px rgba(245, 255, 0, 0.1);
   }
 
-  /* Removed custom button hover effects - using built-in hover-elevate instead */
+  .neon-glow-green {
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid #39FF14;
+    box-shadow: 0 0 25px rgba(57, 255, 20, 0.4), inset 0 0 15px rgba(57, 255, 20, 0.1);
+  }
+
+  /* Neon Button Effects */
+  .btn-neon {
+    background: linear-gradient(45deg, #C6FF00, #A3FF12);
+    border: 2px solid #C6FF00;
+    box-shadow: 0 0 20px rgba(198, 255, 0, 0.4), 0 4px 15px rgba(0, 0, 0, 0.3);
+    color: #000;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-neon:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 0 30px rgba(198, 255, 0, 0.6), 0 0 15px rgba(57, 255, 20, 0.4), 0 8px 25px rgba(0, 0, 0, 0.4);
+    border-color: #39FF14;
+    background: linear-gradient(45deg, #39FF14, #C6FF00);
+  }
+
+  .btn-neon-yellow {
+    background: linear-gradient(45deg, #F5FF00, #C6FF00);
+    border: 2px solid #F5FF00;
+    box-shadow: 0 0 20px rgba(245, 255, 0, 0.4), 0 4px 15px rgba(0, 0, 0, 0.3);
+    color: #000;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .btn-neon-yellow:hover {
+    transform: scale(1.05) translateY(-2px);
+    box-shadow: 0 0 30px rgba(245, 255, 0, 0.6), 0 0 15px rgba(198, 255, 0, 0.4), 0 8px 25px rgba(0, 0, 0, 0.4);
+  }
 
   /* Simplified card hover with subtle transform only */
   .card-hover {
@@ -227,56 +260,108 @@
     }
   }
 
-  /* Gradient Background Animations */
-  .gradient-animate {
+  /* Cyberpunk Background Effects */
+  .cyber-bg {
+    background: linear-gradient(45deg, #000000, #0a0a0a, #000000);
     background-size: 400% 400%;
-    animation: gradientShift 8s ease infinite;
+    animation: cyberWave 10s ease infinite;
   }
 
-  @keyframes gradientShift {
+  @keyframes cyberWave {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
 
-  /* Icon Hover Effects */
-  .icon-hover {
+  /* Fade In + Slide Up Animation */
+  .fade-slide-up {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeSlideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  @keyframes fadeSlideUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Neon Text Glow */
+  .text-neon {
+    color: #C6FF00;
+    text-shadow: 0 0 10px #C6FF00, 0 0 20px #C6FF00, 0 0 30px #39FF14;
+  }
+
+  .text-neon-yellow {
+    color: #F5FF00;
+    text-shadow: 0 0 10px #F5FF00, 0 0 20px #F5FF00, 0 0 30px #C6FF00;
+  }
+
+  /* Neon Icon Effects */
+  .icon-neon {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: drop-shadow(0 0 5px currentColor);
   }
 
-  .icon-hover:hover {
-    transform: scale(1.1) rotate(5deg);
-    color: hsl(var(--primary));
+  .icon-neon:hover {
+    transform: scale(1.1) rotate(10deg);
+    color: #C6FF00;
+    filter: drop-shadow(0 0 15px #C6FF00) drop-shadow(0 0 25px #39FF14);
   }
 
-  /* Enhanced Glassmorphism with Rounded Corners */
-  .glass-card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 1.5rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  /* Pulsing Glow Animation */
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
   }
 
-  .dark .glass-card {
-    background: rgba(0, 0, 0, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(198, 255, 0, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(198, 255, 0, 0.6), 0 0 20px rgba(57, 255, 20, 0.4);
+    }
   }
 
-  /* Animated Loader */
+  /* Cyberpunk Cards with Neon Glow */
+  .cyber-card {
+    background: rgba(0, 0, 0, 0.9);
+    border: 1px solid #C6FF00;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(198, 255, 0, 0.2), 0 8px 32px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .cyber-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 0 40px rgba(198, 255, 0, 0.4), 0 0 20px rgba(57, 255, 20, 0.3), 0 15px 50px rgba(0, 0, 0, 0.6);
+    border-color: #39FF14;
+  }
+
+  /* Neon Loader Animation */
   .loader {
-    width: 20px;
-    height: 20px;
-    border: 2px solid hsl(var(--muted));
-    border-top: 2px solid hsl(var(--primary));
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(198, 255, 0, 0.2);
+    border-top: 3px solid #C6FF00;
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: neonSpin 1s linear infinite;
+    box-shadow: 0 0 15px rgba(198, 255, 0, 0.4);
   }
 
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  @keyframes neonSpin {
+    0% { 
+      transform: rotate(0deg);
+      box-shadow: 0 0 15px rgba(198, 255, 0, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(57, 255, 20, 0.6);
+    }
+    100% { 
+      transform: rotate(360deg);
+      box-shadow: 0 0 15px rgba(198, 255, 0, 0.4);
+    }
   }
 
   /* Hide ugly search cancel button in Chrome until we can style it properly */
