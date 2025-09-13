@@ -9,8 +9,8 @@ export default function WhatsAppContact() {
   const [isOpen, setIsOpen] = useState(false);
   
   // Your WhatsApp contact details
-  const whatsappNumber = "+918825620014";
-  const contactName = "Mani Selvam";
+  const whatsappNumber = "+919345791995";
+  const contactName = "TechARA Academy";
   const businessHours = "Mon-Fri: 9 AM - 6 PM";
   
   const openWhatsAppChat = (message?: string) => {

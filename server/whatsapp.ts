@@ -42,7 +42,7 @@ export function createRegistrationWhatsAppMessage(
   registration: WebinarRegistration,
 ): WhatsAppMessage {
   // Admin WhatsApp number for receiving registrant notifications
-  const adminPhoneNumber = "8825620014";
+  const adminPhoneNumber = "9345791995";
 
   // Example webinar details
   const webinarDate = "December 15, 2024";
@@ -146,7 +146,7 @@ export async function sendWhatsAppMessage(
         toNumber = `whatsapp:${whatsappMessage.phoneNumber}`;
       } else {
         // For admin messages, use the admin number with proper format
-        const adminPhoneNumber = "+918825620014";
+        const adminPhoneNumber = "+919345791995";
         toNumber = `whatsapp:${adminPhoneNumber}`;
       }
 
