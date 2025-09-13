@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Menu, X, ExternalLink } from "lucide-react";
+import { Calendar, Menu, X, ExternalLink, Sun, Moon } from "lucide-react";
+import { useTheme } from "@/components/ThemeProvider";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -90,6 +92,19 @@ export default function Navigation() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={toggleTheme}
+              className="hover-elevate rounded-xl"
+              data-testid="button-theme-toggle"
+            >
+              {theme === "dark" ? (
+                <Sun className="w-5 h-5 icon-neon" />
+              ) : (
+                <Moon className="w-5 h-5 icon-neon" />
+              )}
+            </Button>
             <Button 
               size="sm" 
               className="btn-neon rounded-xl"
@@ -127,15 +142,30 @@ export default function Navigation() {
                 </button>
               ))}
               <div className="px-4 pt-4 space-y-3 border-t border-border/20">
-                <Button 
-                  size="sm" 
-                  className="w-full bg-gradient-to-r from-primary to-accent"
-                  data-testid="button-mobile-register"
-                  onClick={() => scrollToSection('#register')}
-                >
-                  Register Free
-                  <ExternalLink className="w-4 h-4 ml-2" />
-                </Button>
+                <div className="flex gap-3">
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={toggleTheme}
+                    className="hover-elevate rounded-xl"
+                    data-testid="button-mobile-theme-toggle"
+                  >
+                    {theme === "dark" ? (
+                      <Sun className="w-5 h-5 icon-neon" />
+                    ) : (
+                      <Moon className="w-5 h-5 icon-neon" />
+                    )}
+                  </Button>
+                  <Button 
+                    size="sm" 
+                    className="flex-1 btn-neon"
+                    data-testid="button-mobile-register"
+                    onClick={() => scrollToSection('#register')}
+                  >
+                    Register Free
+                    <ExternalLink className="w-4 h-4 ml-2" />
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
