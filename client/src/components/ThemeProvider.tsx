@@ -31,10 +31,10 @@ export function ThemeProvider({ children }: ThemeProviderProps) {
     // Check if theme choice popup has been shown before
     const hasSeenThemeChoice = localStorage.getItem("hasSeenThemeChoice");
     if (!hasSeenThemeChoice) {
-      // Show popup after 15 seconds
+      // Show popup after 5 seconds
       timeoutRef.current = setTimeout(() => {
         setShowThemeChoice({ isVisible: true });
-      }, 15000);
+      }, 5000);
     }
   }, []);
 

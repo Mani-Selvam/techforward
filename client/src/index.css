@@ -13,41 +13,41 @@
   --elevate-1: rgba(0, 0, 0, .03);
   --elevate-2: rgba(0, 0, 0, .08);
 
-  /* Light Mode with Neon Accents */
-  --background: 0 0% 100%;
-  --foreground: 0 0% 8%;
-  --border: 84 40% 60%;
-  --card: 0 0% 98%;
-  --card-foreground: 0 0% 8%;
-  --card-border: 84 40% 60%;
-  --sidebar: 0 0% 96%;
-  --sidebar-foreground: 0 0% 8%;
-  --sidebar-border: 84 40% 60%;
-  --sidebar-primary: 84 80% 45%;
-  --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 60 80% 50%;
-  --sidebar-accent-foreground: 0 0% 100%;
-  --sidebar-ring: 84 80% 45%;
-  --popover: 0 0% 98%;
-  --popover-foreground: 0 0% 8%;
-  --popover-border: 84 40% 60%;
-  --primary: 84 80% 45%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 0 0% 90%;
-  --secondary-foreground: 0 0% 8%;
-  --muted: 0 0% 94%;
-  --muted-foreground: 0 0% 40%;
-  --accent: 60 80% 50%;
-  --accent-foreground: 0 0% 100%;
-  --destructive: 0 85% 55%;
-  --destructive-foreground: 0 0% 100%;
-  --input: 0 0% 96%;
-  --ring: 84 80% 45%;
-  --chart-1: 84 80% 45%;
-  --chart-2: 102 80% 40%;
-  --chart-3: 60 80% 50%;
-  --chart-4: 84 70% 50%;
-  --chart-5: 102 70% 45%;
+  /* Simple Modern Light Mode */
+  --background: 0 0% 99%;
+  --foreground: 0 0% 9%;
+  --border: 0 0% 89%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 9%;
+  --card-border: 0 0% 89%;
+  --sidebar: 0 0% 98%;
+  --sidebar-foreground: 0 0% 9%;
+  --sidebar-border: 0 0% 89%;
+  --sidebar-primary: 222 47% 11%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 210 40% 98%;
+  --sidebar-accent-foreground: 222 47% 11%;
+  --sidebar-ring: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 9%;
+  --popover-border: 0 0% 89%;
+  --primary: 222 47% 11%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 210 40% 98%;
+  --secondary-foreground: 222 47% 11%;
+  --muted: 210 40% 98%;
+  --muted-foreground: 215 13% 65%;
+  --accent: 210 40% 98%;
+  --accent-foreground: 222 47% 11%;
+  --destructive: 0 85% 60%;
+  --destructive-foreground: 0 0% 98%;
+  --input: 0 0% 100%;
+  --ring: 222 47% 11%;
+  --chart-1: 222 47% 11%;
+  --chart-2: 215 13% 65%;
+  --chart-3: 210 40% 98%;
+  --chart-4: 215 25% 27%;
+  --chart-5: 215 20% 65%;
 
   --font-sans: 'Poppins', 'Inter', sans-serif;
   --font-serif: Georgia, serif;
@@ -185,23 +185,23 @@
     box-shadow: 0 0 25px rgba(57, 255, 20, 0.4), inset 0 0 15px rgba(57, 255, 20, 0.1);
   }
 
-  /* Neon Glow Effects - Light Mode */
+  /* Simple Modern Effects - Light Mode */
   .neon-glow {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #7CB342;
-    box-shadow: 0 0 15px rgba(124, 179, 66, 0.4), inset 0 0 10px rgba(124, 179, 66, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
   .neon-glow-yellow {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #FDD835;
-    box-shadow: 0 0 15px rgba(253, 216, 53, 0.4), inset 0 0 10px rgba(253, 216, 53, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
   .neon-glow-green {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #66BB6A;
-    box-shadow: 0 0 20px rgba(102, 187, 106, 0.5), inset 0 0 10px rgba(102, 187, 106, 0.1);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
   /* Neon Button Effects - Dark Mode */
@@ -235,35 +235,35 @@
     box-shadow: 0 0 30px rgba(245, 255, 0, 0.6), 0 0 15px rgba(198, 255, 0, 0.4), 0 8px 25px rgba(0, 0, 0, 0.4);
   }
 
-  /* Neon Button Effects - Light Mode */
+  /* Simple Modern Buttons - Light Mode */
   .btn-neon {
-    background: linear-gradient(45deg, #7CB342, #8BC34A);
-    border: 2px solid #7CB342;
-    box-shadow: 0 0 15px rgba(124, 179, 66, 0.3), 0 4px 15px rgba(0, 0, 0, 0.1);
-    color: #fff;
+    background: hsl(var(--primary));
+    border: 2px solid hsl(var(--primary));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: hsl(var(--primary-foreground));
     font-weight: 600;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .btn-neon:hover {
-    transform: scale(1.05) translateY(-2px);
-    box-shadow: 0 0 25px rgba(124, 179, 66, 0.5), 0 0 10px rgba(102, 187, 106, 0.3), 0 8px 25px rgba(0, 0, 0, 0.2);
-    border-color: #66BB6A;
-    background: linear-gradient(45deg, #66BB6A, #7CB342);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0.9;
   }
 
   .btn-neon-yellow {
-    background: linear-gradient(45deg, #FDD835, #FBC02D);
-    border: 2px solid #FDD835;
-    box-shadow: 0 0 15px rgba(253, 216, 53, 0.3), 0 4px 15px rgba(0, 0, 0, 0.1);
-    color: #fff;
+    background: hsl(var(--accent));
+    border: 2px solid hsl(var(--accent));
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: hsl(var(--accent-foreground));
     font-weight: 600;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .btn-neon-yellow:hover {
-    transform: scale(1.05) translateY(-2px);
-    box-shadow: 0 0 25px rgba(253, 216, 53, 0.5), 0 0 10px rgba(251, 192, 45, 0.3), 0 8px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    opacity: 0.9;
   }
 
   /* Simplified card hover with subtle transform only */
@@ -343,10 +343,10 @@
     text-shadow: 0 0 10px #C6FF00, 0 0 20px #C6FF00, 0 0 30px #39FF14;
   }
 
-  /* Neon Text Glow - Light Mode */
+  /* Simple Modern Text - Light Mode */
   .text-neon {
-    color: #7CB342;
-    text-shadow: 0 0 8px #7CB342, 0 0 15px #66BB6A, 0 0 20px #4CAF50;
+    color: hsl(var(--primary));
+    text-shadow: none;
   }
 
   .text-neon-yellow {
@@ -354,16 +354,26 @@
     text-shadow: 0 0 10px #F5FF00, 0 0 20px #F5FF00, 0 0 30px #C6FF00;
   }
 
-  /* Neon Icon Effects */
-  .icon-neon {
+  /* Neon Icon Effects - Dark Mode */
+  .dark .icon-neon {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     filter: drop-shadow(0 0 5px currentColor);
   }
 
-  .icon-neon:hover {
+  .dark .icon-neon:hover {
     transform: scale(1.1) rotate(10deg);
     color: #C6FF00;
     filter: drop-shadow(0 0 15px #C6FF00) drop-shadow(0 0 25px #39FF14);
+  }
+
+  /* Simple Icon Effects - Light Mode */
+  .icon-neon {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .icon-neon:hover {
+    transform: scale(1.05);
+    opacity: 0.8;
   }
 
   /* Pulsing Glow Animation */
