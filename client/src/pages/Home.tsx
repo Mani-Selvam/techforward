@@ -1,13 +1,13 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
-import CountdownTimer from "@/components/CountdownTimer";
-import SpeakerCards from "@/components/SpeakerCards";
-import VideoPreview from "@/components/VideoPreview";
-import SocialProof from "@/components/SocialProof";
-import CharactersGallery from "@/components/CharactersGallery";
+import CoursesSection from "@/components/CoursesSection";
+import FeaturesSection from "@/components/FeaturesSection";
+import BenefitsSection from "@/components/BenefitsSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import TopicsSection from "@/components/TopicsSection";
+import FinalCTASection from "@/components/FinalCTASection";
 import RegistrationForm from "@/components/RegistrationForm";
 import WhatsAppContact from "@/components/WhatsAppContact";
-import DemandBanner from "@/components/DemandBanner";
 
 export default function Home() {
     return (
@@ -15,27 +15,17 @@ export default function Home() {
             <Navigation />
             <main className="pt-16">
                 <Hero />
-                <section id="about">
-                    <CountdownTimer />
-                </section>
-                <section id="speakers">
-                    <SpeakerCards />
-                </section>
-                <section id="preview">
-                    <VideoPreview />
-                </section>
-                <section id="schedule">
-                    <SocialProof />
-                </section>
-                <CharactersGallery />
+                <CoursesSection />
+                <FeaturesSection />
+                <BenefitsSection />
+                <TestimonialsSection />
+                <TopicsSection />
+                <FinalCTASection />
                 <RegistrationForm />
             </main>
             
             {/* WhatsApp Contact Widget */}
             <WhatsAppContact />
-            
-            {/* High Demand Banner */}
-            <DemandBanner />
 
             {/* Footer */}
             <footer className="bg-card border-t border-border/20 py-12">
@@ -47,31 +37,31 @@ export default function Home() {
                                 style={{
                                     fontFamily: "Space Grotesk, sans-serif",
                                 }}>
-                                TechForward 2025
+                                TechAra 2025
                             </h3>
                             <p className="text-muted-foreground text-sm">
-                                Shaping the future of digital collaboration
-                                through immersive experiences.
+                                Transforming the future through innovative
+                                technology education and expert-led webinars.
                             </p>
                         </div>
 
                         <div className="space-y-4">
-                            <h4 className="font-semibold">Event Info</h4>
+                            <h4 className="font-semibold">Learning Info</h4>
                             <ul className="space-y-2 text-sm text-muted-foreground">
-                                <li>September 15, 2025</li>
-                                <li>2:00 PM EST</li>
-                                <li>Virtual Event</li>
-                                <li>Free Registration</li>
+                                <li>Live Interactive Webinars</li>
+                                <li>Expert-Led Courses</li>
+                                <li>Global Community Access</li>
+                                <li>Flexible Learning</li>
                             </ul>
                         </div>
 
                         <div className="space-y-4">
-                            <h4 className="font-semibold">Connect</h4>
+                            <h4 className="font-semibold">Resources</h4>
                             <ul className="space-y-2 text-sm text-muted-foreground">
-                                <li>Support</li>
-                                <li>Community</li>
-                                <li>Newsletter</li>
-                                <li>Contact</li>
+                                <li>Course Catalog</li>
+                                <li>Learning Paths</li>
+                                <li>Certification</li>
+                                <li>Career Guidance</li>
                             </ul>
                         </div>
 
@@ -87,8 +77,8 @@ export default function Home() {
 
                     <div className="border-t border-border/20 mt-8 pt-8 text-center text-sm text-muted-foreground">
                         <p>
-                            &copy; 2025 TechForward. All rights reserved.
-                            Experience the future today.
+                            &copy; 2025 TechAra. All rights reserved.
+                            Transform your future with technology.
                         </p>
                     </div>
                 </div>

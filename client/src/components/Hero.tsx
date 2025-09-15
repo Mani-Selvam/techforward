@@ -25,7 +25,7 @@ export default function Hero() {
                             className="text-center lg:text-left"
                         >
                             <div className="inline-block px-4 py-2 text-sm font-medium text-accent bg-accent/10 border border-accent/30 rounded-full mb-4">
-                                OCTOBER 28-29 • UAE, DUBAI, FESTIVAL ARENA
+                                LIVE WEBINAR SERIES • INTERACTIVE LEARNING
                             </div>
                         </motion.div>
 
@@ -37,19 +37,19 @@ export default function Hero() {
                             transition={{ duration: 0.8, delay: 0.4 }}
                         >
                             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                                <span className="text-primary" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
-                                    Blockchain
+                                <span className="text-foreground" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
+                                    Transform Your Future with
                                 </span>
                                 <br />
-                                <span className="text-foreground" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
-                                    Life 2025
+                                <span className="text-primary" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
+                                    TechAra Webinars
                                 </span>
                             </h1>
                             
-                            {/* Highlight Ribbon */}
-                            <div className="inline-block px-6 py-3 bg-destructive text-destructive-foreground font-bold text-lg rounded-lg">
-                                15TH ANNIVERSARY FORUM ON WEB3 AND CRYPTO
-                            </div>
+                            {/* Subtitle */}
+                            <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed">
+                                Learn Web3, Blockchain, and Future Tech from Industry Leaders
+                            </p>
                         </motion.div>
 
                         {/* CTA Buttons */}
@@ -63,9 +63,9 @@ export default function Hero() {
                                 <Button
                                     size="lg"
                                     className="px-8 py-4 text-lg font-semibold orange-glow rounded-xl"
-                                    data-testid="button-buy-tickets"
+                                    data-testid="button-join-webinar"
                                 >
-                                    BUY TICKETS
+                                    JOIN WEBINAR
                                 </Button>
                             </motion.div>
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
@@ -73,30 +73,13 @@ export default function Hero() {
                                     variant="outline"
                                     size="lg"
                                     className="px-8 py-4 text-lg font-semibold border-foreground/30 bg-background/10 backdrop-blur-sm rounded-xl"
-                                    data-testid="button-sponsorship"
+                                    data-testid="button-explore-courses"
                                 >
-                                    SPONSORSHIP
+                                    EXPLORE COURSES
                                 </Button>
                             </motion.div>
                         </motion.div>
 
-                        {/* Watch Trailer Button */}
-                        <motion.div 
-                            className="flex justify-center lg:justify-start"
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            transition={{ duration: 0.6, delay: 1.0 }}
-                        >
-                            <Button
-                                variant="outline"
-                                size="lg"
-                                className="px-6 py-3 border-primary/50 bg-primary/10 backdrop-blur-sm rounded-xl flex items-center gap-3"
-                                data-testid="button-watch-trailer"
-                            >
-                                <Play className="w-5 h-5 text-primary" />
-                                WATCH TRAILER
-                            </Button>
-                        </motion.div>
                     </div>
                     
                     {/* Right Side - Cosmic Portal */}
@@ -128,20 +111,20 @@ export default function Hero() {
                     data-testid="stats-section"
                 >
                     <div className="space-y-2">
-                        <div className="text-3xl md:text-4xl font-bold text-primary" data-testid="stat-attendees">15000+</div>
-                        <div className="text-sm text-muted-foreground uppercase tracking-wider">ATTENDEES</div>
+                        <div className="text-3xl md:text-4xl font-bold text-primary" data-testid="stat-learners">10000+</div>
+                        <div className="text-sm text-muted-foreground uppercase tracking-wider">LEARNERS</div>
                     </div>
                     <div className="space-y-2">
-                        <div className="text-3xl md:text-4xl font-bold text-primary" data-testid="stat-speakers">200+</div>
-                        <div className="text-sm text-muted-foreground uppercase tracking-wider">SPEAKERS</div>
+                        <div className="text-3xl md:text-4xl font-bold text-primary" data-testid="stat-instructors">200+</div>
+                        <div className="text-sm text-muted-foreground uppercase tracking-wider">INSTRUCTORS</div>
                     </div>
                     <div className="space-y-2">
-                        <div className="text-3xl md:text-4xl font-bold text-primary" data-testid="stat-countries">130+</div>
+                        <div className="text-3xl md:text-4xl font-bold text-primary" data-testid="stat-countries">50+</div>
                         <div className="text-sm text-muted-foreground uppercase tracking-wider">COUNTRIES</div>
                     </div>
                     <div className="space-y-2">
-                        <div className="text-3xl md:text-4xl font-bold text-primary" data-testid="stat-booths">200+</div>
-                        <div className="text-sm text-muted-foreground uppercase tracking-wider">BOOTHS</div>
+                        <div className="text-3xl md:text-4xl font-bold text-primary" data-testid="stat-courses">100+</div>
+                        <div className="text-sm text-muted-foreground uppercase tracking-wider">COURSES</div>
                     </div>
                 </motion.div>
             </div>

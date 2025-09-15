@@ -51,10 +51,10 @@ export default function Navigation() {
   };
 
   const navItems = [
-    { label: 'AGENDA', href: '#about' },
-    { label: 'SPONSORSHIP', href: '#speakers' },
-    { label: 'PLAN YOUR VISIT', href: '#schedule' },
-    { label: 'BL WEEK', href: '#preview' }
+    { label: 'COURSES', href: '#courses' },
+    { label: 'FEATURES', href: '#features' },
+    { label: 'BENEFITS', href: '#benefits' },
+    { label: 'TESTIMONIALS', href: '#testimonials' }
   ];
 
   return (
@@ -68,10 +68,10 @@ export default function Navigation() {
             </div>
             <div>
               <span className="font-bold text-lg" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
-                Blockchain Life
+                TechAra
               </span>
               <Badge variant="outline" className="ml-2 text-xs neon-glow text-primary border-primary/40">
-                2025
+                WEBINARS
               </Badge>
             </div>
           </div>
@@ -107,11 +107,11 @@ export default function Navigation() {
             </Button>
             <Button 
               size="sm" 
-              className="btn-neon rounded-xl"
+              className="orange-glow rounded-xl"
               data-testid="button-nav-register"
               onClick={() => scrollToSection('#register')}
             >
-              Register Free
+              Join Webinar
             </Button>
           </div>
 
@@ -158,11 +158,11 @@ export default function Navigation() {
                   </Button>
                   <Button 
                     size="sm" 
-                    className="flex-1 btn-neon"
+                    className="flex-1 orange-glow"
                     data-testid="button-mobile-register"
                     onClick={() => scrollToSection('#register')}
                   >
-                    Register Free
+                    Join Webinar
                     <ExternalLink className="w-4 h-4 ml-2" />
                   </Button>
                 </div>
