@@ -1,240 +1,150 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, Clock, Users } from "lucide-react";
+import { Calendar, Users, Globe, Building2, Play } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function Hero() {
     return (
         <motion.section 
-            className="relative min-h-screen flex items-center justify-center overflow-hidden cyber-bg"
+            className="relative min-h-screen flex items-center justify-center overflow-hidden space-bg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
         >
-            {/* Animated Background */}
-            <div className="absolute inset-0">
-                {/* Gradient blobs */}
-                <motion.div
-                    className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full blur-3xl pulse-glow"
-                    animate={{
-                        x: [0, 100, 0],
-                        y: [0, -50, 0],
-                        scale: [1, 1.2, 1],
-                    }}
-                    transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                    }}
-                />
-                <motion.div
-                    className="absolute top-1/2 right-20 w-96 h-96 bg-gradient-to-r from-accent/15 to-chart-2/15 rounded-full blur-3xl"
-                    animate={{
-                        x: [0, -80, 0],
-                        y: [0, 100, 0],
-                        scale: [1, 0.8, 1],
-                    }}
-                    transition={{
-                        duration: 25,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: 2
-                    }}
-                />
-                <motion.div
-                    className="absolute bottom-20 left-1/3 w-64 h-64 bg-gradient-to-r from-chart-2/20 to-primary/20 rounded-full blur-3xl"
-                    animate={{
-                        x: [0, 60, 0],
-                        y: [0, -80, 0],
-                        scale: [1, 1.3, 1],
-                    }}
-                    transition={{
-                        duration: 18,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                        delay: 4
-                    }}
-                />
-            </div>
-
-            {/* Floating Particles */}
-            <div className="absolute inset-0 pointer-events-none">
-                {[...Array(12)].map((_, i) => (
-                    <motion.div
-                        key={i}
-                        className={`absolute w-2 h-2 bg-gradient-to-r from-primary/40 to-accent/40 rounded-full`}
-                        style={{
-                            left: `${10 + (i * 8)}%`,
-                            top: `${20 + (i * 5)}%`,
-                        }}
-                        animate={{
-                            y: [0, -30, 0],
-                            opacity: [0.3, 1, 0.3],
-                            scale: [0.5, 1, 0.5],
-                        }}
-                        transition={{
-                            duration: 4 + (i * 0.5),
-                            repeat: Infinity,
-                            ease: "easeInOut",
-                            delay: i * 0.2
-                        }}
-                    />
-                ))}
-            </div>
-
             {/* Main Content */}
-            <div className="relative z-10 container mx-auto px-4 text-center">
-                <div className="max-w-4xl mx-auto space-y-8">
-                    {/* Event Badge */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
-                    >
-                        <Badge
-                            variant="outline"
-                            className="mx-auto px-6 py-3 text-sm font-medium neon-glow border-primary/60 pulse-glow">
-                            <Calendar className="w-4 h-4 mr-2 text-primary icon-neon" />
-                            March 15, 2025 • 2:00 PM EST
-                        </Badge>
-                    </motion.div>
+            <div className="relative z-10 container mx-auto px-4">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
+                    
+                    {/* Left Side Content */}
+                    <div className="lg:w-1/2 space-y-8 text-center lg:text-left">
+                        {/* Event Date Badge */}
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.2 }}
+                            className="text-center lg:text-left"
+                        >
+                            <div className="inline-block px-4 py-2 text-sm font-medium text-accent bg-accent/10 border border-accent/30 rounded-full mb-4">
+                                OCTOBER 28-29 • UAE, DUBAI, FESTIVAL ARENA
+                            </div>
+                        </motion.div>
 
-                    {/* Main Headline */}
-                    <motion.div 
-                        className="space-y-4"
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.4 }}
-                    >
-                        <h1
-                            className="text-5xl md:text-7xl font-bold text-foreground leading-tight"
-                            style={{ fontFamily: "Space Grotesk, sans-serif" }}>
-                            Future of Digital
-                            <br />
-                            <motion.span 
-                                className="text-neon"
-                                animate={{
-                                    backgroundPosition: ["0%", "100%", "0%"]
-                                }}
-                                transition={{
-                                    duration: 5,
-                                    repeat: Infinity,
-                                    ease: "easeInOut"
-                                }}
-                            >
-                                Collaboration
-                            </motion.span>
-                        </h1>
-                        <motion.p 
-                            className="text-xl md:text-2xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+                        {/* Main Title */}
+                        <motion.div 
+                            className="space-y-6"
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                        >
+                            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight">
+                                <span className="text-primary" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
+                                    Blockchain
+                                </span>
+                                <br />
+                                <span className="text-foreground" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
+                                    Life 2025
+                                </span>
+                            </h1>
+                            
+                            {/* Highlight Ribbon */}
+                            <div className="inline-block px-6 py-3 bg-destructive text-destructive-foreground font-bold text-lg rounded-lg">
+                                15TH ANNIVERSARY FORUM ON WEB3 AND CRYPTO
+                            </div>
+                        </motion.div>
+
+                        {/* CTA Buttons */}
+                        <motion.div 
+                            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center"
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.8 }}
+                        >
+                            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                                <Button
+                                    size="lg"
+                                    className="px-8 py-4 text-lg font-semibold orange-glow rounded-xl"
+                                    data-testid="button-buy-tickets"
+                                >
+                                    BUY TICKETS
+                                </Button>
+                            </motion.div>
+                            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                                <Button
+                                    variant="outline"
+                                    size="lg"
+                                    className="px-8 py-4 text-lg font-semibold border-foreground/30 bg-background/10 backdrop-blur-sm rounded-xl"
+                                    data-testid="button-sponsorship"
+                                >
+                                    SPONSORSHIP
+                                </Button>
+                            </motion.div>
+                        </motion.div>
+
+                        {/* Watch Trailer Button */}
+                        <motion.div 
+                            className="flex justify-center lg:justify-start"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
-                            transition={{ duration: 0.8, delay: 0.8 }}
-                        >
-                            Experience the next generation of webinars with
-                            interactive 3D environments, real-time
-                            collaboration, and cutting-edge technology.
-                        </motion.p>
-                    </motion.div>
-
-                    {/* Event Stats */}
-                    <motion.div 
-                        className="flex flex-wrap justify-center gap-8 text-sm"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 1.0 }}
-                    >
-                        <motion.div 
-                            className="flex items-center gap-2 neon-glow px-6 py-3 hover-elevate fade-slide-up"
-                            transition={{ duration: 0.2 }}
-                        >
-                            <Users className="w-4 h-4 text-primary icon-neon" />
-                            <span>500+ Attendees</span>
-                        </motion.div>
-                        <motion.div 
-                            className="flex items-center gap-2 neon-glow-yellow px-6 py-3 hover-elevate fade-slide-up"
-                            transition={{ duration: 0.2 }}
-                        >
-                            <Clock className="w-4 h-4 text-accent icon-neon" />
-                            <span>90 Minutes</span>
-                        </motion.div>
-                        <motion.div 
-                            className="flex items-center gap-2 neon-glow-green px-6 py-3 hover-elevate fade-slide-up"
-                            transition={{ duration: 0.2 }}
-                        >
-                            <Calendar className="w-4 h-4 text-chart-2 icon-neon" />
-                            <span>Interactive Sessions</span>
-                        </motion.div>
-                    </motion.div>
-
-                    {/* CTA Buttons */}
-                    <motion.div 
-                        className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 1.2 }}
-                    >
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            <Button
-                                size="lg"
-                                className="px-8 py-4 text-lg font-semibold btn-neon rounded-xl"
-                                data-testid="button-register"
-                                onClick={() => {
-                                  console.log('Scrolling to #register');
-                                  const targetElement = document.querySelector('#register') as HTMLElement;
-                                  if (targetElement) {
-                                    const headerOffset = 100;
-                                    const elementPosition = targetElement.offsetTop;
-                                    const offsetPosition = elementPosition - headerOffset;
-                                    
-                                    window.scrollTo({
-                                      top: offsetPosition,
-                                      behavior: 'smooth'
-                                    });
-                                  } else {
-                                    console.log('Register element not found');
-                                  }
-                                }}>
-                                Register Free Now
-                            </Button>
-                        </motion.div>
-                        <motion.div
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                            transition={{ duration: 0.6, delay: 1.0 }}
                         >
                             <Button
                                 variant="outline"
                                 size="lg"
-                                className="px-8 py-4 text-lg font-semibold btn-neon-yellow rounded-xl"
-                                data-testid="button-watch-preview"
-                                onClick={() => {
-                                  const targetElement = document.querySelector('#preview');
-                                  if (targetElement) {
-                                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                    setTimeout(() => window.scrollBy({ top: -80, behavior: 'smooth' }), 100);
-                                  }
-                                }}>
-                                Watch Preview
+                                className="px-6 py-3 border-primary/50 bg-primary/10 backdrop-blur-sm rounded-xl flex items-center gap-3"
+                                data-testid="button-watch-trailer"
+                            >
+                                <Play className="w-5 h-5 text-primary" />
+                                WATCH TRAILER
                             </Button>
                         </motion.div>
-                    </motion.div>
+                    </div>
+                    
+                    {/* Right Side - Cosmic Portal */}
+                    <div className="lg:w-1/2 flex items-center justify-center">
+                        <motion.div 
+                            className="cosmic-portal flex items-center justify-center mx-auto"
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ duration: 1.2, delay: 0.6 }}
+                        >
+                            {/* Portal Content - Earth in center */}
+                            <div className="relative w-48 h-48 rounded-full overflow-hidden">
+                                <div className="w-full h-full bg-gradient-to-br from-blue-400 via-blue-600 to-blue-900 rounded-full relative">
+                                    {/* Earth-like surface */}
+                                    <div className="absolute inset-4 bg-gradient-to-br from-green-400 via-blue-500 to-blue-700 rounded-full opacity-80"></div>
+                                    <div className="absolute inset-8 bg-gradient-to-br from-green-300 via-blue-400 to-blue-600 rounded-full opacity-60"></div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
                 </div>
+                
+                {/* Statistics Section */}
+                <motion.div 
+                    className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 1.2 }}
+                    data-testid="stats-section"
+                >
+                    <div className="space-y-2">
+                        <div className="text-3xl md:text-4xl font-bold text-primary" data-testid="stat-attendees">15000+</div>
+                        <div className="text-sm text-muted-foreground uppercase tracking-wider">ATTENDEES</div>
+                    </div>
+                    <div className="space-y-2">
+                        <div className="text-3xl md:text-4xl font-bold text-primary" data-testid="stat-speakers">200+</div>
+                        <div className="text-sm text-muted-foreground uppercase tracking-wider">SPEAKERS</div>
+                    </div>
+                    <div className="space-y-2">
+                        <div className="text-3xl md:text-4xl font-bold text-primary" data-testid="stat-countries">130+</div>
+                        <div className="text-sm text-muted-foreground uppercase tracking-wider">COUNTRIES</div>
+                    </div>
+                    <div className="space-y-2">
+                        <div className="text-3xl md:text-4xl font-bold text-primary" data-testid="stat-booths">200+</div>
+                        <div className="text-sm text-muted-foreground uppercase tracking-wider">BOOTHS</div>
+                    </div>
+                </motion.div>
             </div>
-
-            {/* Custom Animation Styles */}
-            <style
-                dangerouslySetInnerHTML={{
-                    __html: `
-          @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(180deg); }
-          }
-        `,
-                }}
-            />
         </motion.section>
     );
 }

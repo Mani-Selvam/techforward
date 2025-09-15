@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -166,42 +166,42 @@
  */
 @layer utilities {
 
-  /* Neon Glow Effects - Dark Mode */
+  /* Blue Glow Effects - Dark Mode */
   .dark .neon-glow {
     background: rgba(0, 0, 0, 0.8);
-    border: 1px solid #C6FF00;
-    box-shadow: 0 0 20px rgba(198, 255, 0, 0.3), inset 0 0 20px rgba(198, 255, 0, 0.1);
+    border: 1px solid #3B82F6;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3), inset 0 0 20px rgba(59, 130, 246, 0.1);
   }
 
-  .dark .neon-glow-yellow {
+  .dark .neon-glow-orange {
     background: rgba(0, 0, 0, 0.8);
-    border: 1px solid #F5FF00;
-    box-shadow: 0 0 20px rgba(245, 255, 0, 0.3), inset 0 0 20px rgba(245, 255, 0, 0.1);
+    border: 1px solid #FF6B35;
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.3), inset 0 0 20px rgba(255, 107, 53, 0.1);
   }
 
-  .dark .neon-glow-green {
+  .dark .neon-glow-blue {
     background: rgba(0, 0, 0, 0.8);
-    border: 1px solid #39FF14;
-    box-shadow: 0 0 25px rgba(57, 255, 20, 0.4), inset 0 0 15px rgba(57, 255, 20, 0.1);
+    border: 1px solid #60A5FA;
+    box-shadow: 0 0 25px rgba(96, 165, 250, 0.4), inset 0 0 15px rgba(96, 165, 250, 0.1);
   }
 
-  /* Bright Blue/Purple Effects - Light Mode */
+  /* Blue/Orange Effects - Light Mode */
   .neon-glow {
     background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #00B4FF;
-    box-shadow: 0 0 20px rgba(0, 180, 255, 0.4), inset 0 0 10px rgba(0, 180, 255, 0.1);
+    border: 1px solid #3B82F6;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4), inset 0 0 10px rgba(59, 130, 246, 0.1);
   }
 
-  .neon-glow-yellow {
+  .neon-glow-orange {
     background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #FF00FF;
-    box-shadow: 0 0 20px rgba(255, 0, 255, 0.4), inset 0 0 10px rgba(255, 0, 255, 0.1);
+    border: 1px solid #FF6B35;
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.4), inset 0 0 10px rgba(255, 107, 53, 0.1);
   }
 
-  .neon-glow-green {
+  .neon-glow-blue {
     background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #8A2BE2;
-    box-shadow: 0 0 25px rgba(138, 43, 226, 0.4), inset 0 0 15px rgba(138, 43, 226, 0.1);
+    border: 1px solid #60A5FA;
+    box-shadow: 0 0 25px rgba(96, 165, 250, 0.4), inset 0 0 15px rgba(96, 165, 250, 0.1);
   }
 
   /* Neon Button Effects - Dark Mode */

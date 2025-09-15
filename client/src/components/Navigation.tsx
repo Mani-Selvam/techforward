@@ -51,10 +51,10 @@ export default function Navigation() {
   };
 
   const navItems = [
-    { label: 'About', href: '#about' },
-    { label: 'Speakers', href: '#speakers' },
-    { label: 'Schedule', href: '#schedule' },
-    { label: 'Preview', href: '#preview' }
+    { label: 'AGENDA', href: '#about' },
+    { label: 'SPONSORSHIP', href: '#speakers' },
+    { label: 'PLAN YOUR VISIT', href: '#schedule' },
+    { label: 'BL WEEK', href: '#preview' }
   ];
 
   return (
@@ -68,7 +68,7 @@ export default function Navigation() {
             </div>
             <div>
               <span className="font-bold text-lg" style={{ fontFamily: "Space Grotesk, sans-serif" }}>
-                TechForward
+                Blockchain Life
               </span>
               <Badge variant="outline" className="ml-2 text-xs neon-glow text-primary border-primary/40">
                 2025
@@ -83,7 +83,7 @@ export default function Navigation() {
                 key={item.label}
                 onClick={() => scrollToSection(item.href)}
                 className="text-muted-foreground hover:text-foreground nav-link transition-colors duration-200 font-medium"
-                data-testid={`nav-${item.label.toLowerCase()}`}
+                data-testid={`nav-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
               >
                 {item.label}
               </button>
@@ -136,7 +136,7 @@ export default function Navigation() {
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
                   className="block w-full text-left px-4 py-3 text-muted-foreground hover:text-foreground hover:bg-muted/50 transition-colors duration-200 rounded-lg"
-                  data-testid={`nav-mobile-${item.label.toLowerCase()}`}
+                  data-testid={`nav-mobile-${item.label.toLowerCase().replace(/\s+/g, '-')}`}
                 >
                   {item.label}
                 </button>

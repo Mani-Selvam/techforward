@@ -1,0 +1,85 @@
+Prompt:
+
+"Design a modern, futuristic webinar landing page inspired by premium tech conferences. Use a dark theme background with glowing neon gradients (blue, purple, cyan) and animated particles or light streaks to create a high-tech vibe. The hero section should have a 3D abstract circular or digital portal design with glowing edges, showcasing the event title and CTA buttons (Join Webinar, Explore Courses). Below the hero, add sleek, card-style sections with rounded corners, subtle glassmorphism, and hover animations. Use bold modern sans-serif typography with gradient highlights. Ensure a clean grid layout with lots of whitespace and smooth entrance animations (fade, zoom, slide)."
+
+🏗️ Suggested Page Structure with Headings
+
+Hero Section
+
+Title: "Transform Your Future with TechAra Webinars"
+
+Subtitle: "Learn Web3, Blockchain, and Future Tech from Industry Leaders"
+
+Buttons: Join Webinar | Explore Courses
+
+Background: glowing futuristic ring/portal + animated starry space
+
+Explore Our Best Courses
+
+Grid of 3–6 cards
+
+Each card = course name, short description, glowing icon
+
+Hover animation: zoom-in + glow border
+
+TechAra Features
+
+Horizontal feature highlights with icons (✔ Modern Curriculum, ✔ Hands-on Projects, ✔ Global Community, ✔ Expert Mentors)
+
+Neon gradient dividers or glowing lines between features
+
+Who Can Benefit from This Program?
+
+Section with 3–4 audience types:
+
+Students → “Kickstart your career in tech”
+
+Professionals → “Upskill with blockchain & AI”
+
+Entrepreneurs → “Leverage Web3 for business”
+
+Enthusiasts → “Explore futuristic innovations”
+
+Each block with glowing avatar/icon
+
+Testimonials
+
+Carousel/slider with profile images in glowing circles
+
+Glass-effect testimonial cards with short feedback
+
+Attendees (Statistics)
+
+Numbers + animated counters
+
+“10,000+ Learners”
+
+“200+ Instructors”
+
+“50+ Countries”
+
+Futuristic glowing icons + minimalistic typography
+
+Other Topics Covered
+
+Grid of tags or pills with neon glow (AI, Blockchain, NFTs, Cloud, Metaverse, Web3 Security, Smart Contracts)
+
+Animated hover glow effect
+
+Final CTA Section
+
+Bold headline: “Don’t Miss the Future. Join TechAra Today!”
+
+Buttons: Register Now | Download Brochure
+
+Background: glowing gradient waves / cosmic neon theme
+
+⚡ Trending Elements to Add:
+
+Glassmorphism cards with blur and neon borders.
+
+Animated gradients in buttons & headings.
+
+3D icons / line icons with neon glow.
+
+Particle.js or Three.js background for depth.

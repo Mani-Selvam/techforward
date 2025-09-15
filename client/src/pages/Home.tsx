@@ -7,6 +7,7 @@ import SocialProof from "@/components/SocialProof";
 import CharactersGallery from "@/components/CharactersGallery";
 import RegistrationForm from "@/components/RegistrationForm";
 import WhatsAppContact from "@/components/WhatsAppContact";
+import DemandBanner from "@/components/DemandBanner";
 
 export default function Home() {
     return (
@@ -32,6 +33,9 @@ export default function Home() {
             
             {/* WhatsApp Contact Widget */}
             <WhatsAppContact />
+            
+            {/* High Demand Banner */}
+            <DemandBanner />
 
             {/* Footer */}
             <footer className="bg-card border-t border-border/20 py-12">
